@@ -37,16 +37,16 @@ export default function Home() {
   const resetThreshold = totalWidth;
   const animationRef = useRef<number | null>(null);
   const [isResetting, setIsResetting] = useState(false);
-  const moveSpeed = 0.5; // Slower movement speed
+  const MOVE_SPEED = 0.5;
 
   useEffect(() => {
     const animate = (timestamp: number) => {
       if (!isHovered && !isDragging && !isResetting) {
-        const newPosition = position - moveSpeed;
+        const newPosition = position - MOVE_SPEED;
         if (newPosition <= -resetThreshold) {
           setIsResetting(true);
           setPosition(0);
-          setTimeout(() => setIsResetting(false), 100); // Slightly longer reset delay
+          setTimeout(() => setIsResetting(false), 100);
         } else {
           setPosition(newPosition);
         }
@@ -60,7 +60,7 @@ export default function Home() {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [isHovered, isDragging, position, resetThreshold, isResetting, moveSpeed]);
+  }, [isHovered, isDragging, position, resetThreshold, isResetting]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
@@ -86,7 +86,7 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b from-white to-red-50">
       {/* Hero Section */}
       <section className="relative h-[85vh] flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-b from-red-500/30 to-red-900/50 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60 z-10" />
         <div className="absolute inset-0">
           <Image
             src="/assets/hero.jpg"
@@ -96,7 +96,7 @@ export default function Home() {
             priority
           />
         </div>
-        <div className="relative z-20 text-center text-white">
+        <div className="relative z-20 text-center text-white max-w-4xl mx-auto px-6">
           <h1 className="text-6xl md:text-7xl font-bold mb-4">PSU VSA</h1>
           <p className="text-xl md:text-2xl mb-8">Vietnamese Student Association at Penn State</p>
           <Link 
@@ -114,19 +114,19 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-16 text-center text-black">Making an Impact</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="text-center p-6 rounded-xl bg-white/80 shadow-lg hover:shadow-xl transition-shadow">
+            <div className="text-center p-8 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
               <div className="text-5xl font-bold text-red-600 mb-4">
                 <AnimatedNumber target={40} />
               </div>
               <p className="text-xl text-black">Active Members</p>
             </div>
-            <div className="text-center p-6 rounded-xl bg-white/80 shadow-lg hover:shadow-xl transition-shadow">
+            <div className="text-center p-8 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
               <div className="text-5xl font-bold text-red-600 mb-4">
                 <AnimatedNumber target={20} />
               </div>
               <p className="text-xl text-black">Events Per Year</p>
             </div>
-            <div className="text-center p-6 rounded-xl bg-white/80 shadow-lg hover:shadow-xl transition-shadow">
+            <div className="text-center p-8 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
               <div className="text-5xl font-bold text-red-600 mb-4">
                 $<AnimatedNumber target={3500} />
               </div>
