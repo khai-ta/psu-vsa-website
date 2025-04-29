@@ -70,7 +70,7 @@ export default function About() {
           <h2 className="text-3xl font-bold mb-8 text-black">Our Community</h2>
           <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-8">
             <Image
-              src="/members.jpg"
+              src="/assets/members.PNG"
               alt="VSA Community"
               fill
               className="object-cover"

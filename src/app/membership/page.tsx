@@ -38,12 +38,13 @@ export default function Membership() {
         <section>
           <h2 className="text-3xl font-bold mb-8 text-black">Membership Rewards</h2>
           <div className="bg-white rounded-xl p-6 border-2 border-red-100">
-            <div className="relative w-full aspect-video mb-6 rounded-lg overflow-hidden">
+            <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
               <Image
-                src="/membership/rewards.jpg"
+                src="/assets/rewards.png"
                 alt="Membership Rewards"
                 fill
-                className="object-cover"
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
             <p className="text-lg text-black">

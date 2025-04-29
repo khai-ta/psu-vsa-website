@@ -9,8 +9,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-red-500/30 to-red-900/50 z-10" />
         <div className="absolute inset-0">
           <Image
-            src="/hero-bg.jpg"
-            alt="Penn State VSA Hero"
+            src="/assets/hero.jpg"
+            alt="VSA Members"
             fill
             className="object-cover"
             priority
