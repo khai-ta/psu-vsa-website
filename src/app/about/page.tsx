@@ -39,9 +39,9 @@ export default function About() {
       image: "/eboard/external-relations.jpg"
     },
     {
-      name: "XX",
+      name: "Suri Phung",
       position: "Social Media Chair",
-      year: "XX",
+      year: "Freshman",
       image: "/eboard/placeholder.jpg"
     },
     {
