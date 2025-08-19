@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FaInstagram, FaLink, FaUsers, FaEnvelope, FaFire } from 'react-icons/fa';
+import { FaInstagram, FaLink, FaFacebook, FaEnvelope, FaFire } from 'react-icons/fa';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -38,7 +38,7 @@ export default function Contact() {
         <div className="grid gap-6">
           {/* Instagram */}
           <a 
-            href="https://instagram.com/pennstatevsa" 
+            href="https://instagram.com/psu_vsa" 
             target="_blank" 
             rel="noopener noreferrer"
             className="group bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 p-[1px] rounded-xl"
@@ -48,7 +48,28 @@ export default function Contact() {
                 <FaInstagram className="text-3xl text-purple-500 group-hover:text-white" />
                 <div>
                   <h3 className="font-bold text-xl mb-1 text-black group-hover:text-white">Instagram</h3>
-                  <p className="text-black group-hover:text-white/90">Follow us @pennstatevsa for updates and event photos</p>
+                  <p className="text-black group-hover:text-white/90">Follow us @psu_vsa for updates and event photos</p>
+                </div>
+              </div>
+              <span className="text-2xl text-black group-hover:text-white group-hover:translate-x-2 transition-transform">→</span>
+            </div>
+          </a>
+
+          {/* Facebook */}
+          <a 
+            href="https://www.facebook.com/PennStateVietnameseAssociation" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="group bg-gradient-to-r from-blue-600 to-blue-700 p-[1px] rounded-xl"
+          >
+            <div className="bg-white rounded-xl p-6 flex items-center justify-between transition-colors group-hover:bg-transparent">
+              <div className="flex items-center gap-4">
+                <FaFacebook className="text-3xl text-blue-600 group-hover:text-white" />
+                <div>
+                  <h3 className="font-bold text-xl mb-1 text-black group-hover:text-white">Facebook</h3>
+                  <p className="text-black group-hover:text-white/90">
+                    Follow us @PennStateVietnameseAssociation to stay updated with events and news
+                  </p>
                 </div>
               </div>
               <span className="text-2xl text-black group-hover:text-white group-hover:translate-x-2 transition-transform">→</span>
@@ -74,28 +95,9 @@ export default function Contact() {
             </div>
           </a>
 
-          {/* GroupMe */}
-          <a 
-            href="https://groupme.com/join_group/123456789" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="group bg-gradient-to-r from-blue-500 to-blue-600 p-[1px] rounded-xl"
-          >
-            <div className="bg-white rounded-xl p-6 flex items-center justify-between transition-colors group-hover:bg-transparent">
-              <div className="flex items-center gap-4">
-                <FaUsers className="text-3xl text-blue-500 group-hover:text-white" />
-                <div>
-                  <h3 className="font-bold text-xl mb-1 text-black group-hover:text-white">GroupMe</h3>
-                  <p className="text-black group-hover:text-white/90">Join our GroupMe chat to stay connected with members</p>
-                </div>
-              </div>
-              <span className="text-2xl text-black group-hover:text-white group-hover:translate-x-2 transition-transform">→</span>
-            </div>
-          </a>
-
           {/* Linktree */}
           <a 
-            href="https://linktr.ee/pennstatevsa" 
+            href="https://linktr.ee/psu.vsa" 
             target="_blank" 
             rel="noopener noreferrer"
             className="group bg-gradient-to-r from-green-400 to-blue-500 p-[1px] rounded-xl"

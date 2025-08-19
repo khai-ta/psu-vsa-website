@@ -5,77 +5,42 @@ export default function Events() {
     {
       id: 1,
       title: "Involvement Fair",
-      date: "August 26, 2025",
-      time: "11:00 AM - 4:00 PM",
-      location: "TBD",
-      description: "Meet the VSA eboard and learn about our organization.",
+      date: "September 3, 2025",
+      time: "12:00 AM - 6:00 PM",
+      location: "HUB Lawn",
+      description: "Meet the VSA eboard and learn about our organization",
       rsvpLink: "https://linktr.ee/pennstatevsa"
     },
     {
       id: 2,
       title: "First GBM",
-      date: "August 28, 2025",
-      time: "6:00 PM - 7:30 PM",
-      location: "TBD",
-      description: "First general body meeting of the semester.",
+      date: "September 5, 2025",
+      time: "6:00 PM - 8:00 PM",
+      location: "Health and Human Development Building 254",
+      description: "First general body meeting of the semester",
       rsvpLink: "https://linktr.ee/pennstatevsa"
     },
     {
       id: 3,
       title: "Welcome Back Pool Party",
-      date: "September 7, 2025",
+      date: "September 13, 2025",
       time: "2:00 PM - 5:00 PM",
       location: "TBD",
-      description: "Pool party to welcome everyone back to campus.",
+      description: "Pool party to welcome everyone back to campus",
       rsvpLink: "https://linktr.ee/pennstatevsa"
     },
     {
       id: 4,
-      title: "Boba Social",
-      date: "September 14, 2025",
-      time: "7:00 PM - 9:00 PM",
-      location: "TBD",
-      description: "Social event with boba and games.",
-      rsvpLink: "https://linktr.ee/pennstatevsa"
-    },
-    {
-      id: 5,
       title: "Mid-Autumn Festival",
-      date: "September 21, 2025",
+      date: "October 12, 2025",
       time: "6:00 PM - 9:00 PM",
       location: "TBD",
-      description: "Celebration of the Mid-Autumn Festival with food and activities.",
+      description: "Celebration of the Mid-Autumn Festival with food and activities",
       rsvpLink: "https://linktr.ee/pennstatevsa"
     },
-    {
-      id: 6,
-      title: "THON Ice Cream Sale",
-      date: "September 28, 2025",
-      time: "11:00 AM - 3:00 PM",
-      location: "TBD",
-      description: "Fundraiser for THON selling ice cream.",
-      rsvpLink: "https://linktr.ee/pennstatevsa"
-    },
-    {
-      id: 7,
-      title: "Annual Hiking Trip",
-      date: "October 5, 2025",
-      time: "9:00 AM - 5:00 PM",
-      location: "TBD",
-      description: "Hiking trip with THSA and HKSA.",
-      rsvpLink: "https://linktr.ee/pennstatevsa"
-    }
   ];
 
   const pastEvents = [
-    {
-      id: 8,
-      title: "Tet Celebration",
-      date: "January 19, 2025",
-      time: "6:30 PM - 9:30 PM",
-      location: "Alumni Hall",
-      description: "Lunar New Year celebration with performances and food."
-    }
   ];
 
   return (
@@ -113,7 +78,7 @@ export default function Events() {
           </div>
         </section>
 
-        {/* Past Events */}
+        {/* Past Events*/}
         <section>
           <h2 className="text-3xl font-bold mb-6 text-black">Past Events</h2>
           <div className="grid gap-6">
