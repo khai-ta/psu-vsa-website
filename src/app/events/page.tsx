@@ -25,7 +25,7 @@ export default function Events() {
       title: "Welcome Back Pool Party",
       date: "September 13, 2025",
       time: "2:00 PM - 5:00 PM",
-      location: "TBD",
+      location: "The Station",
       description: "Pool party to welcome everyone back to campus",
       rsvpLink: "https://linktr.ee/pennstatevsa"
     },
@@ -34,13 +34,22 @@ export default function Events() {
       title: "Mid-Autumn Festival",
       date: "October 12, 2025",
       time: "6:00 PM - 9:00 PM",
-      location: "TBD",
+      location: "Business Building",
       description: "Celebration of the Mid-Autumn Festival with food and activities",
       rsvpLink: "https://linktr.ee/pennstatevsa"
     },
   ];
 
   const pastEvents = [
+    {
+      id: 5,
+      title: "x",
+      date: "x",
+      time: "xx:xx AM - xx:xx PM",
+      location: "x",
+      description: "x",
+      rsvpLink: "https://linktr.ee/pennstatevsa"
+    },
   ];
 
   return (
