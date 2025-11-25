@@ -17,17 +17,17 @@ export default function Membership() {
           <h2 className="text-3xl font-bold mb-8 text-black">How It Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white rounded-xl p-6 border-2 border-red-100">
-              <div className="text-4xl mb-4">1</div>
+              <div className="text-4xl mb-4 text-red-600">1</div>
               <h3 className="text-xl font-bold mb-2 text-black">Sign Up</h3>
               <p className="text-lg text-black">Follow us on Flare to become a member</p>
             </div>
             <div className="bg-white rounded-xl p-6 border-2 border-red-100">
-              <div className="text-4xl mb-4">2</div>
+              <div className="text-4xl mb-4 text-red-600">2</div>
               <h3 className="text-xl font-bold mb-2 text-black">Attend Events</h3>
               <p className="text-lg text-black">Earn points for participating in events</p>
             </div>
             <div className="bg-white rounded-xl p-6 border-2 border-red-100">
-              <div className="text-4xl mb-4">3</div>
+              <div className="text-4xl mb-4 text-red-600">3</div>
               <h3 className="text-xl font-bold mb-2 text-black">Get Rewards</h3>
               <p className="text-lg text-black">Redeem your points for exclusive rewards</p>
             </div>
