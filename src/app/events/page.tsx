@@ -123,6 +123,23 @@ export default function Events() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-red-50">
       <div className="max-w-4xl mx-auto px-4 py-12">
+        {/* Tet Section */}
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold mb-6 text-black">Tet Celebration</h2>
+          <div className="bg-gradient-to-br from-red-50 to-yellow-50 border-2 border-red-200 rounded-xl p-8">
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-bold text-black mb-2">Vietnamese Lunar New Year</h3>
+              <p className="text-lg text-red-600 font-medium">Coming in 2026</p>
+            </div>
+            <p className="text-black text-center mb-4">
+              Join us for our biggest celebration of the year! Tet is the Vietnamese Lunar New Year celebration featuring traditional food, performances, cultural activities, and more.
+            </p>
+            <p className="text-black text-center text-sm italic">
+              Details and ticket information will be announced soon. Stay tuned!
+            </p>
+          </div>
+        </section>
+
         {/* Upcoming Events */}
         <section className="mb-12">
           <h2 className="text-3xl font-bold mb-6 text-black">Upcoming Events</h2>
