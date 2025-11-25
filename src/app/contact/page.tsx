@@ -1,29 +1,8 @@
 'use client';
 
-import { useState } from 'react';
-import { FaInstagram, FaLink, FaFacebook, FaEnvelope, FaFire } from 'react-icons/fa';
+import { FaInstagram, FaLink, FaFacebook, FaFire } from 'react-icons/fa';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-red-50">
@@ -78,7 +57,7 @@ export default function Contact() {
 
           {/* Flare */}
           <a 
-            href="https://flare.social/pennstatevsa" 
+            href="https://flare-event.app.link/ISoIUZ3BzYb" 
             target="_blank" 
             rel="noopener noreferrer"
             className="group bg-gradient-to-r from-red-500 to-red-600 p-[1px] rounded-xl"
@@ -113,46 +92,6 @@ export default function Contact() {
               <span className="text-2xl text-black group-hover:text-white group-hover:translate-x-2 transition-transform">→</span>
             </div>
           </a>
-
-          {/* Newsletter Signup */}
-          <div className="border-2 border-red-100 rounded-xl p-6">
-            <div className="flex items-center gap-4 mb-4">
-              <FaEnvelope className="text-3xl text-red-500" />
-              <h3 className="font-bold text-xl text-black">Newsletter Signup</h3>
-            </div>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-black mb-1">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-black mb-1">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition-colors"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
         </div>
       </div>
     </div>
