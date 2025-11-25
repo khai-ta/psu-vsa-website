@@ -116,7 +116,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="text-center p-8 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
               <div className="text-5xl font-bold text-red-600 mb-4">
-                <AnimatedNumber target={40} />
+                <AnimatedNumber target={50} />
               </div>
               <p className="text-xl text-black">Active Members</p>
             </div>
@@ -128,7 +128,7 @@ export default function Home() {
             </div>
             <div className="text-center p-8 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
               <div className="text-5xl font-bold text-red-600 mb-4">
-                $<AnimatedNumber target={3500} />
+                $<AnimatedNumber target={6000} />
               </div>
               <p className="text-xl text-black">Raised for THON</p>
             </div>
