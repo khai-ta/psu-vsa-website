@@ -9,22 +9,16 @@ export default function About() {
       image: "/eboard/president.jpg"
     },
     {
-      name: "Christian Ta",
-      position: "Vice President",
-      year: "Sophomore",
-      image: "/eboard/vice-president.jpg"
-    },
-    {
       name: "Khai Ta",
-      position: "Secretary",
+      position: "Vice President & Secretary",
       year: "Sophomore",
       image: "/eboard/secretary.jpg"
     },
     {
-      name: "Jonathan Song",
-      position: "Treasurer",
-      year: "Junior",
-      image: "/eboard/treasurer.jpg"
+      name: "Vy Phan",
+      position: "Treasurer & THON Chair",
+      year: "Senior",
+      image: "/eboard/thon-chair.jpg"
     },
     {
       name: "Trang Mai",
@@ -43,12 +37,33 @@ export default function About() {
       position: "Social Media Chair",
       year: "Freshman",
       image: "/eboard/placeholder.jpg"
+    }
+  ];
+
+  const interns = [
+    {
+      name: "Loi Nguyen",
+      position: "Intern",
+      year: "Sophomore",
+      image: "/eboard/placeholder.jpg"
     },
     {
-      name: "Vy Phan",
-      position: "THON Chair",
-      year: "Senior",
-      image: "/eboard/thon-chair.jpg"
+      name: "Vanessa Nguyen",
+      position: "Intern",
+      year: "Freshman",
+      image: "/eboard/placeholder.jpg"
+    },
+    {
+      name: "Julianna Vo",
+      position: "Intern",
+      year: "Freshman",
+      image: "/eboard/placeholder.jpg"
+    },
+    {
+      name: "Sophie Vu",
+      position: "Intern",
+      year: "Freshman",
+      image: "/eboard/placeholder.jpg"
     }
   ];
 
@@ -79,9 +94,9 @@ export default function About() {
         </section>
 
         {/* Eboard Members */}
-        <section>
+        <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8 text-black">Executive Board</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {eboardMembers.map((member) => (
               <div key={member.position} className="border-2 border-red-100 rounded-xl overflow-hidden">
                 <div className="relative aspect-square">
@@ -92,10 +107,34 @@ export default function About() {
                     className="object-cover"
                   />
                 </div>
-                <div className="p-4">
+                <div className="p-4 h-[120px] flex flex-col justify-start">
                   <h3 className="font-bold text-xl text-black">{member.name}</h3>
                   <p className="text-red-600 font-medium">{member.position}</p>
                   <p className="text-black text-sm">{member.year}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Interns */}
+        <section>
+          <h2 className="text-3xl font-bold mb-8 text-black">Interns</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {interns.map((intern) => (
+              <div key={intern.name} className="border-2 border-red-100 rounded-xl overflow-hidden">
+                <div className="relative aspect-square">
+                  <Image
+                    src={intern.image}
+                    alt={`${intern.name} - ${intern.position}`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4 h-[120px] flex flex-col justify-start">
+                  <h3 className="font-bold text-xl text-black">{intern.name}</h3>
+                  <p className="text-red-600 font-medium">{intern.position}</p>
+                  <p className="text-black text-sm">{intern.year}</p>
                 </div>
               </div>
             ))}
