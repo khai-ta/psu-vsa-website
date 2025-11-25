@@ -37,19 +37,58 @@ export default function Membership() {
         {/* Rewards Section */}
         <section>
           <h2 className="text-3xl font-bold mb-8 text-black">Membership Rewards</h2>
-          <div className="bg-white rounded-xl p-6 border-2 border-red-100">
-            <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
-              <Image
-                src="/assets/rewards.png"
-                alt="Membership Rewards"
-                fill
-                className="object-contain"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
+          <div className="space-y-6">
+            {/* 2 Points Reward */}
+            <div className="bg-white rounded-xl p-6 border-2 border-red-100 hover:border-red-300 transition-colors">
+              <div className="flex items-start gap-4">
+                <div className="bg-red-100 rounded-full px-4 py-2 font-bold text-red-600 shrink-0">
+                  2 Points
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2 text-black">10% Off Sponsor Coupon</h3>
+                  <p className="text-lg text-black mb-3">
+                    Get a 10% discount coupon at any of our sponsors:
+                  </p>
+                  <ul className="list-disc list-inside text-lg text-black space-y-1">
+                    <li>Tasty K</li>
+                    <li>Whale Tea</li>
+                    <li>Momotaro</li>
+                    <li>Hawaiian Poke</li>
+                    <li>Uncle Chen</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <p className="text-lg text-black">
-              Earn points by participating in events and redeem them for exclusive rewards! The more events you attend, the better the rewards you can earn.
-            </p>
+
+            {/* 5 Points Reward */}
+            <div className="bg-white rounded-xl p-6 border-2 border-red-100 hover:border-red-300 transition-colors">
+              <div className="flex items-start gap-4">
+                <div className="bg-red-100 rounded-full px-4 py-2 font-bold text-red-600 shrink-0">
+                  5 Points
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2 text-black">Free Event Entry</h3>
+                  <p className="text-lg text-black">
+                    Get free entrance to any of our paid events (excluding Tet)
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 10 Points Reward */}
+            <div className="bg-white rounded-xl p-6 border-2 border-red-100 hover:border-red-300 transition-colors">
+              <div className="flex items-start gap-4">
+                <div className="bg-red-100 rounded-full px-4 py-2 font-bold text-red-600 shrink-0">
+                  10 Points
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2 text-black">Free VSA Merch</h3>
+                  <p className="text-lg text-black">
+                    Get free VSA merchandise (design coming soon)
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </div>
