@@ -154,7 +154,7 @@ export default function Events() {
       const monthOrder = ["September", "October", "November", "December"];
       return monthOrder.indexOf(a) - monthOrder.indexOf(b);
     });
-  }, []);
+  }, [pastEvents]);
 
   // Filter and sort events
   const filteredAndSortedEvents = useMemo(() => {
@@ -183,7 +183,7 @@ export default function Events() {
     });
 
     return sorted;
-  }, [filterMonth, sortBy]);
+  }, [filterMonth, sortBy, pastEvents]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-red-50">
