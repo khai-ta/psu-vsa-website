@@ -1,6 +1,7 @@
-"use client";
+'use client';
 
-import { useState, useMemo } from "react";
+import { useState, useMemo } from 'react';
+import Image from 'next/image';
 
 export default function Events() {
   const [sortBy, setSortBy] = useState<"date-desc" | "date-asc" | "title">("date-desc");
@@ -24,7 +25,7 @@ export default function Events() {
       date: "November 13, 2025",
       time: "6:00 PM - 8:00 PM",
       location: "Agricultural Sciences and Industries Building 121",
-      description: "Game night with Switch, poker, cards, and board games",
+      description: "Game night with switch, poker, cards, and board games",
       month: "November",
     },
     {
@@ -33,7 +34,7 @@ export default function Events() {
       date: "October 31, 2025",
       time: "6:00 PM - 8:00 PM",
       location: "HUB 233AB",
-      description: "Decorate bags, wear costumes, and collect treats. Costume contest included",
+      description: "Decorate bags, wear costumes, and collect treats (costume contest included)",
       month: "October",
     },
     {
@@ -60,7 +61,7 @@ export default function Events() {
       date: "October 10, 2025",
       time: "6:00 PM - 8:00 PM",
       location: "Thomas 100",
-      description: "Watch the Vietnamese film Mai with free popcorn",
+      description: "Watch the Vietnamese film Mai with free popcorn and drinks",
       month: "October",
     },
     {
@@ -69,7 +70,7 @@ export default function Events() {
       date: "October 4, 2025",
       time: "12:00 PM - 5:00 PM",
       location: "Sunset Park",
-      description: "Sports competition with ASFC, KSA, ASA, FJSA, TASA, and HKSA",
+      description: "Fitness competition with ASFC, KSA, ASA, FJSA, TASA, and HKSA",
       month: "October",
     },
     {
@@ -78,7 +79,7 @@ export default function Events() {
       date: "October 3, 2025",
       time: "6:00 PM - 8:00 PM",
       location: "Teadori",
-      description: "Compete in a Tien Len card tournament. $3 entry fee with prizes for winners",
+      description: "Compete in a Tien Len card tournament ($3 entry fee with prizes for winners)",
       month: "October",
     },
     {
@@ -123,7 +124,7 @@ export default function Events() {
       date: "September 14, 2025",
       time: "2:00 PM - 5:00 PM",
       location: "The Overlook Pavilion / Event Lawn",
-      description: "$5 entry or bring food. Vietnamese dishes and traditional favorites provided",
+      description: "$5 entry or bring food (Vietnamese dishes and traditional favorites provided)",
       month: "September",
     },
     {
@@ -186,50 +187,61 @@ export default function Events() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-red-50">
-      <div className="max-w-4xl mx-auto px-4 py-12">
+      <div className="max-w-5xl mx-auto px-4 py-16">
         {/* Tet Section */}
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-black">Tet Celebration</h2>
-          <div className="bg-gradient-to-br from-red-50 to-yellow-50 border-2 border-red-200 rounded-xl p-8">
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-black mb-2">Vietnamese Lunar New Year</h3>
-              <p className="text-lg text-red-600 font-medium">Coming in 2026</p>
+        <section className="mb-20">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-black">Tet Celebration</h2>
+          <div className="bg-gradient-to-br from-red-50 to-yellow-50 border border-red-200 rounded-2xl overflow-hidden shadow-lg">
+            {/* Tet Image */}
+            <div className="relative w-full h-[400px]">
+              <Image
+                src="/assets/tet-mua-lan.PNG"
+                alt="Tet Mua Lan Celebration"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
+              />
             </div>
-            <p className="text-black text-center mb-4">
-              Join us for our biggest celebration of the year! Tet is the Vietnamese Lunar New Year celebration featuring traditional food, performances, cultural activities, and more.
-            </p>
-            <p className="text-black text-center text-sm italic">
-              Details and ticket information will be announced soon. Stay tuned!
-            </p>
+            
+            <div className="p-8">
+              <div className="text-center mb-4">
+                <h3 className="text-2xl font-bold text-black mb-2">Vietnamese Lunar New Year</h3>
+                <p className="text-xl text-red-600 font-medium mb-2">February 8, 2026</p>
+                <p className="text-lg text-gray-600">Alumni Hall, HUB</p>
+              </div>
+              <p className="text-gray-700 text-center mb-4 text-lg">
+                Celebrate the Year of the Horse with exciting games, captivating performances including lion dance, mixed dance, ao dai catwalk, skits, and singing, plus delicious authentic Vietnamese food!
+              </p>
+            </div>
           </div>
         </section>
 
         {/* Upcoming Events */}
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-black">Upcoming Events</h2>
-          <div className="grid gap-6">
+        <section className="mb-20">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-black">Upcoming Events</h2>
+          <div className="grid gap-8">
             {upcomingEvents.map((event) => (
-              <div key={event.id} className="border-2 border-red-100 rounded-xl p-6 hover:border-red-200 transition-colors">
+              <div key={event.id} className="bg-white border border-red-100 rounded-2xl p-8 hover:shadow-lg transition-all shadow-md">
                 <div className="flex flex-col gap-4">
                   <div>
                     <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-bold text-black">{event.title}</h3>
+                      <h3 className="text-2xl font-bold text-black">{event.title}</h3>
                       <a
                         href={event.rsvpLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-red-600 hover:text-red-700 font-semibold group"
+                        className="inline-flex items-center bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 font-semibold group transition-colors"
                       >
                         <span>RSVP</span>
-                        <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+                        <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
                       </a>
                     </div>
-                    <div className="mt-2 space-y-1">
-                      <p className="text-red-600 text-sm font-medium">{event.date} @ {event.time}</p>
-                      <p className="text-black">{event.location}</p>
+                    <div className="mt-3 space-y-2">
+                      <p className="text-red-600 font-medium">{event.date} @ {event.time}</p>
+                      <p className="text-gray-600">{event.location}</p>
                     </div>
                   </div>
-                  <p className="text-black">{event.description}</p>
+                  <p className="text-gray-700 text-lg">{event.description}</p>
                 </div>
               </div>
             ))}
@@ -238,20 +250,20 @@ export default function Events() {
 
         {/* Past Events*/}
         <section>
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-4">
-            <h2 className="text-3xl font-bold text-black">Past Events</h2>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-black">Past Events</h2>
             
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-4">
               {/* Month Filter */}
-              <div className="flex items-center gap-2">
-                <label htmlFor="month-filter" className="text-sm font-medium text-black whitespace-nowrap">
+              <div className="flex items-center gap-3">
+                <label htmlFor="month-filter" className="text-sm font-semibold text-black whitespace-nowrap">
                   Filter by:
                 </label>
                 <select
                   id="month-filter"
                   value={filterMonth}
                   onChange={(e) => setFilterMonth(e.target.value)}
-                  className="border-2 border-red-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-red-300 bg-white text-black"
+                  className="border border-red-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-300 bg-white text-black shadow-sm"
                 >
                   <option value="all">All Months</option>
                   {availableMonths.map((month) => (
@@ -263,15 +275,15 @@ export default function Events() {
               </div>
 
               {/* Sort By */}
-              <div className="flex items-center gap-2">
-                <label htmlFor="sort-by" className="text-sm font-medium text-black whitespace-nowrap">
+              <div className="flex items-center gap-3">
+                <label htmlFor="sort-by" className="text-sm font-semibold text-black whitespace-nowrap">
                   Sort by:
                 </label>
                 <select
                   id="sort-by"
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as "date-desc" | "date-asc" | "title")}
-                  className="border-2 border-red-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-red-300 bg-white text-black"
+                  className="border border-red-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-300 bg-white text-black shadow-sm"
                 >
                   <option value="date-desc">Newest First</option>
                   <option value="date-asc">Oldest First</option>
@@ -284,22 +296,22 @@ export default function Events() {
           <div className="grid gap-6">
             {filteredAndSortedEvents.length > 0 ? (
               filteredAndSortedEvents.map((event) => (
-                <div key={event.id} className="border-2 border-red-100 rounded-xl p-6 hover:border-red-200 transition-colors">
+                <div key={event.id} className="bg-white border border-red-100 rounded-2xl p-8 hover:shadow-lg transition-all shadow-md">
                   <div className="flex flex-col gap-4">
                     <div>
-                      <h3 className="text-xl font-bold text-black">{event.title}</h3>
-                      <div className="mt-2 space-y-1">
-                        <p className="text-red-600 text-sm font-medium">{event.date} @ {event.time}</p>
-                        <p className="text-black">{event.location}</p>
+                      <h3 className="text-2xl font-bold text-black">{event.title}</h3>
+                      <div className="mt-3 space-y-2">
+                        <p className="text-red-600 font-medium">{event.date} @ {event.time}</p>
+                        <p className="text-gray-600">{event.location}</p>
                       </div>
                     </div>
-                    <p className="text-black">{event.description}</p>
+                    <p className="text-gray-700 text-lg">{event.description}</p>
                   </div>
                 </div>
               ))
             ) : (
-              <div className="border-2 border-red-100 rounded-xl p-8 text-center">
-                <p className="text-black text-lg">No events found for the selected filter.</p>
+              <div className="bg-white border border-red-100 rounded-2xl p-12 text-center shadow-md">
+                <p className="text-gray-600 text-lg">No events found for the selected filter.</p>
               </div>
             )}
           </div>
