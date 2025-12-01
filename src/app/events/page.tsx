@@ -1,6 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { useState, useMemo } from "react";
 
 export default function Events() {
+  const [sortBy, setSortBy] = useState<"date-desc" | "date-asc" | "title">("date-desc");
+  const [filterMonth, setFilterMonth] = useState<string>("all");
   const upcomingEvents = [
     {
       id: 1,
@@ -16,19 +21,30 @@ export default function Events() {
   const pastEvents = [
     {
       id: 2,
+      title: "VSA x aKDPhi Game Night",
+      date: "November 13, 2025",
+      time: "6:00 PM - 8:00 PM",
+      location: "Agricultural Sciences and Industries Building 121",
+      description: "Game night with Switch, poker, cards, and board games",
+      month: "November",
+    },
+    {
+      id: 3,
       title: "ASA x VSA Trick or Treat Night",
       date: "October 31, 2025",
       time: "6:00 PM - 8:00 PM",
       location: "HUB 233AB",
-      description: "Decorate your own trick or treat bags, show up in costumes for a chance to win prizes, and fill your bag with treats from eboard. Costume contest included!",
+      description: "Decorate bags, wear costumes, and collect treats. Costume contest included",
+      month: "October",
     },
     {
-      id: 3,
+      id: 4,
       title: "Childhood Sports Day",
       date: "October 18, 2025",
       time: "2:00 PM - 4:00 PM",
       location: "HUB Lawn",
-      description: "Play traditional games including blindfolded goat catching, weighted shuttlecock kicking, marble toss and catch, telephone game, and rock paper scissors",
+      description: "Traditional games including goat catching, shuttlecock kicking, and marble toss",
+      month: "October",
     },
     {
       id: 4,
@@ -36,7 +52,8 @@ export default function Events() {
       date: "October 12, 2025",
       time: "6:00 PM - 8:00 PM",
       location: "Business Building 108",
-      description: "Make lanterns and mooncake to celebrate the Mid-Autumn Festival",
+      description: "Make lanterns and mooncakes to celebrate Mid-Autumn Festival",
+      month: "October",
     },
     {
       id: 5,
@@ -44,7 +61,8 @@ export default function Events() {
       date: "October 10, 2025",
       time: "6:00 PM - 8:00 PM",
       location: "Thomas 100",
-      description: "Watch Mai with free popcorn",
+      description: "Watch the Vietnamese film Mai with free popcorn",
+      month: "October",
     },
     {
       id: 6,
@@ -52,7 +70,8 @@ export default function Events() {
       date: "October 4, 2025",
       time: "12:00 PM - 5:00 PM",
       location: "Sunset Park",
-      description: "Joint event with ASFC x KSA x VSA x ASA x FJSA x TASA x HKSA",
+      description: "Fitness competition with ASFC, KSA, ASA, FJSA, TASA, and HKSA",
+      month: "October",
     },
     {
       id: 7,
@@ -60,7 +79,8 @@ export default function Events() {
       date: "October 3, 2025",
       time: "6:00 PM - 8:00 PM",
       location: "Teadori",
-      description: "$3 entry fee to win big prizes",
+      description: "Compete in a Tien Len card tournament. $3 entry fee with prizes for winners",
+      month: "October",
     },
     {
       id: 8,
@@ -69,6 +89,7 @@ export default function Events() {
       time: "Kickoff @ 7:30 PM",
       location: "Beaver Stadium",
       description: "Free game entrance and ice cream to support VSA",
+      month: "September",
     },
     {
       id: 9,
@@ -77,6 +98,7 @@ export default function Events() {
       time: "6:00 PM - 8:00 PM",
       location: "Thomas 100",
       description: "Sing your heart out with VSA",
+      month: "September",
     },
     {
       id: 10,
@@ -84,7 +106,8 @@ export default function Events() {
       date: "September 21, 2025",
       time: "12:00 PM - 2:00 PM",
       location: "HUB 131",
-      description: "$3 for Vietnamese coffee or to make it yourself",
+      description: "Enjoy Vietnamese coffee for $3 or make it yourself",
+      month: "September",
     },
     {
       id: 11,
@@ -92,7 +115,8 @@ export default function Events() {
       date: "September 19, 2025",
       time: "6:00 PM - 8:00 PM",
       location: "Huck 005",
-      description: "Come to play card games, study, socialize, and make new friends",
+      description: "Play card games, study, socialize, and make new friends",
+      month: "September",
     },
     {
       id: 12,
@@ -100,7 +124,8 @@ export default function Events() {
       date: "September 14, 2025",
       time: "2:00 PM - 5:00 PM",
       location: "The Overlook Pavilion / Event Lawn",
-      description: "$5 entry or bring food. Featured: banh xeo, spring rolls, fried eggs and rice, stir fried noodles, fried spring rolls, spam musubi",
+      description: "$5 entry or bring food. Vietnamese dishes and traditional favorites provided",
+      month: "September",
     },
     {
       id: 13,
@@ -109,6 +134,7 @@ export default function Events() {
       time: "6:00 PM - 8:00 PM",
       location: "Huck 005",
       description: "Study or learn how to play tien len",
+      month: "September",
     },
     {
       id: 14,
@@ -117,8 +143,47 @@ export default function Events() {
       time: "6:00 PM - 8:00 PM",
       location: "Health and Human Development 254",
       description: "First general body meeting of the semester",
+      month: "September",
     },
   ];
+
+  // Get unique months for filter
+  const availableMonths = useMemo(() => {
+    const months = [...new Set(pastEvents.map(event => event.month))];
+    return months.sort((a, b) => {
+      const monthOrder = ["September", "October", "November", "December"];
+      return monthOrder.indexOf(a) - monthOrder.indexOf(b);
+    });
+  }, []);
+
+  // Filter and sort events
+  const filteredAndSortedEvents = useMemo(() => {
+    let filtered = pastEvents;
+
+    // Apply month filter
+    if (filterMonth !== "all") {
+      filtered = filtered.filter(event => event.month === filterMonth);
+    }
+
+    // Apply sorting
+    const sorted = [...filtered].sort((a, b) => {
+      if (sortBy === "title") {
+        return a.title.localeCompare(b.title);
+      }
+      
+      // For date sorting, parse the date string
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      
+      if (sortBy === "date-desc") {
+        return dateB.getTime() - dateA.getTime(); // Newest first
+      } else {
+        return dateA.getTime() - dateB.getTime(); // Oldest first
+      }
+    });
+
+    return sorted;
+  }, [filterMonth, sortBy]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-red-50">
@@ -174,22 +239,70 @@ export default function Events() {
 
         {/* Past Events*/}
         <section>
-          <h2 className="text-3xl font-bold mb-6 text-black">Past Events</h2>
-          <div className="grid gap-6">
-            {pastEvents.map((event) => (
-              <div key={event.id} className="border-2 border-red-100 rounded-xl p-6 hover:border-red-200 transition-colors">
-                <div className="flex flex-col gap-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-black">{event.title}</h3>
-                    <div className="mt-2 space-y-1">
-                      <p className="text-red-600 text-sm font-medium">{event.date} @ {event.time}</p>
-                      <p className="text-black">{event.location}</p>
-                    </div>
-                  </div>
-                  <p className="text-black">{event.description}</p>
-                </div>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-4">
+            <h2 className="text-3xl font-bold text-black">Past Events</h2>
+            
+            <div className="flex flex-col sm:flex-row gap-3">
+              {/* Month Filter */}
+              <div className="flex items-center gap-2">
+                <label htmlFor="month-filter" className="text-sm font-medium text-black whitespace-nowrap">
+                  Filter by:
+                </label>
+                <select
+                  id="month-filter"
+                  value={filterMonth}
+                  onChange={(e) => setFilterMonth(e.target.value)}
+                  className="border-2 border-red-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-red-300 bg-white text-black"
+                >
+                  <option value="all">All Months</option>
+                  {availableMonths.map((month) => (
+                    <option key={month} value={month}>
+                      {month}
+                    </option>
+                  ))}
+                </select>
               </div>
-            ))}
+
+              {/* Sort By */}
+              <div className="flex items-center gap-2">
+                <label htmlFor="sort-by" className="text-sm font-medium text-black whitespace-nowrap">
+                  Sort by:
+                </label>
+                <select
+                  id="sort-by"
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value as "date-desc" | "date-asc" | "title")}
+                  className="border-2 border-red-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-red-300 bg-white text-black"
+                >
+                  <option value="date-desc">Newest First</option>
+                  <option value="date-asc">Oldest First</option>
+                  <option value="title">Title (A-Z)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid gap-6">
+            {filteredAndSortedEvents.length > 0 ? (
+              filteredAndSortedEvents.map((event) => (
+                <div key={event.id} className="border-2 border-red-100 rounded-xl p-6 hover:border-red-200 transition-colors">
+                  <div className="flex flex-col gap-4">
+                    <div>
+                      <h3 className="text-xl font-bold text-black">{event.title}</h3>
+                      <div className="mt-2 space-y-1">
+                        <p className="text-red-600 text-sm font-medium">{event.date} @ {event.time}</p>
+                        <p className="text-black">{event.location}</p>
+                      </div>
+                    </div>
+                    <p className="text-black">{event.description}</p>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="border-2 border-red-100 rounded-xl p-8 text-center">
+                <p className="text-black text-lg">No events found for the selected filter.</p>
+              </div>
+            )}
           </div>
         </section>
       </div>

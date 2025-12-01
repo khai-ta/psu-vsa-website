@@ -97,11 +97,11 @@ export default function Home() {
           />
         </div>
         <div className="relative z-20 text-center text-white max-w-4xl mx-auto px-6">
-          <h1 className="text-6xl md:text-7xl font-bold mb-4">PSU VSA</h1>
-          <p className="text-xl md:text-2xl mb-8">Vietnamese Student Association at Penn State</p>
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">PSU VSA</h1>
+          <p className="text-xl md:text-2xl mb-10 font-light">Vietnamese Student Association at Penn State</p>
           <Link 
             href="/about"
-            className="inline-flex items-center bg-white text-red-600 px-8 py-3 rounded-lg hover:bg-red-50 transition-colors group"
+            className="inline-flex items-center bg-white text-red-600 px-10 py-4 rounded-full hover:bg-red-50 transition-all font-semibold text-lg shadow-lg hover:shadow-xl group"
           >
             <span>Learn More</span>
             <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
@@ -110,39 +110,39 @@ export default function Home() {
       </section>
 
       {/* Impact Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-16 text-center text-black">Making an Impact</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="text-center p-8 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-5xl font-bold text-red-600 mb-4">
+      <section className="py-24">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-20 text-center text-black">Our Impact</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center p-10 rounded-2xl bg-white border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+              <div className="text-6xl font-bold text-red-600 mb-3">
                 <AnimatedNumber target={50} />
               </div>
-              <p className="text-xl text-black">Active Members</p>
+              <p className="text-lg text-gray-600 font-medium">Active Members</p>
             </div>
-            <div className="text-center p-8 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-5xl font-bold text-red-600 mb-4">
+            <div className="text-center p-10 rounded-2xl bg-white border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+              <div className="text-6xl font-bold text-red-600 mb-3">
                 <AnimatedNumber target={20} />
               </div>
-              <p className="text-xl text-black">Events Per Year</p>
+              <p className="text-lg text-gray-600 font-medium">Events Per Year</p>
             </div>
-            <div className="text-center p-8 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-5xl font-bold text-red-600 mb-4">
+            <div className="text-center p-10 rounded-2xl bg-white border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+              <div className="text-6xl font-bold text-red-600 mb-3">
                 $<AnimatedNumber target={6000} />
               </div>
-              <p className="text-xl text-black">Raised for THON</p>
+              <p className="text-lg text-gray-600 font-medium">Raised for THON</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Gallery Section */}
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-16 text-center text-black">Moments</h2>
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-20 text-center text-black">Our Moments</h2>
           <div 
             ref={carouselRef}
-            className="relative w-full h-[300px] overflow-x-auto scrollbar-hide"
+            className="relative w-full h-[350px] overflow-x-auto scrollbar-hide"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => {
               setIsHovered(false);
@@ -153,7 +153,7 @@ export default function Home() {
             onMouseUp={handleMouseUp}
           >
             <div 
-              className="absolute flex gap-4 transition-transform duration-2000 cursor-grab active:cursor-grabbing"
+              className="absolute flex gap-6 transition-transform duration-2000 cursor-grab active:cursor-grabbing"
               style={{ 
                 transform: `translateX(${position}px)`,
                 transition: isResetting ? 'none' : 'transform 2s linear'
@@ -163,36 +163,30 @@ export default function Home() {
               {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
                 <div
                   key={`first-${num}`}
-                  className="relative w-[300px] h-[300px] flex-none rounded-xl overflow-hidden group shadow-lg hover:shadow-xl transition-shadow"
+                  className="relative w-[350px] h-[350px] flex-none rounded-2xl overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-300"
                 >
                   <Image
                     src={`/assets/gallery/${num}.jpg`}
                     alt="VSA Event"
                     fill
-                    className="object-cover transition-all duration-300 group-hover:scale-110"
+                    className="object-cover transition-all duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-sm">VSA Event {num}</p>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               ))}
               {/* Second set */}
               {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
                 <div
                   key={`second-${num}`}
-                  className="relative w-[300px] h-[300px] flex-none rounded-xl overflow-hidden group shadow-lg hover:shadow-xl transition-shadow"
+                  className="relative w-[350px] h-[350px] flex-none rounded-2xl overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-300"
                 >
                   <Image
                     src={`/assets/gallery/${num}.jpg`}
                     alt="VSA Event"
                     fill
-                    className="object-cover transition-all duration-300 group-hover:scale-110"
+                    className="object-cover transition-all duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-sm">VSA Event {num}</p>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               ))}
             </div>
