@@ -47,7 +47,7 @@ export default function Events() {
       month: "October",
     },
     {
-      id: 4,
+      id: 5,
       title: "Mid-Autumn Festival",
       date: "October 12, 2025",
       time: "6:00 PM - 8:00 PM",
@@ -56,7 +56,7 @@ export default function Events() {
       month: "October",
     },
     {
-      id: 5,
+      id: 6,
       title: "Movie Night",
       date: "October 10, 2025",
       time: "6:00 PM - 8:00 PM",
@@ -65,16 +65,16 @@ export default function Events() {
       month: "October",
     },
     {
-      id: 6,
+      id: 7,
       title: "Physical 100",
       date: "October 4, 2025",
       time: "12:00 PM - 5:00 PM",
       location: "Sunset Park",
-      description: "Fitness competition with ASFC, KSA, ASA, FJSA, TASA, and HKSA",
+      description: "Sports competition with ASFC, KSA, ASA, FJSA, TASA, and HKSA",
       month: "October",
     },
     {
-      id: 7,
+      id: 8,
       title: "Tien Len Tournament",
       date: "October 3, 2025",
       time: "6:00 PM - 8:00 PM",
@@ -83,7 +83,7 @@ export default function Events() {
       month: "October",
     },
     {
-      id: 8,
+      id: 9,
       title: "VSA Ice Cream Sale",
       date: "September 27, 2025",
       time: "Kickoff @ 7:30 PM",
@@ -92,7 +92,7 @@ export default function Events() {
       month: "September",
     },
     {
-      id: 9,
+      id: 10,
       title: "Karaoke Night",
       date: "September 26, 2025",
       time: "6:00 PM - 8:00 PM",
@@ -101,7 +101,7 @@ export default function Events() {
       month: "September",
     },
     {
-      id: 10,
+      id: 11,
       title: "Cup of Coffee with VSA",
       date: "September 21, 2025",
       time: "12:00 PM - 2:00 PM",
@@ -110,7 +110,7 @@ export default function Events() {
       month: "September",
     },
     {
-      id: 11,
+      id: 12,
       title: "Common Hour #2",
       date: "September 19, 2025",
       time: "6:00 PM - 8:00 PM",
@@ -119,7 +119,7 @@ export default function Events() {
       month: "September",
     },
     {
-      id: 12,
+      id: 13,
       title: "Arboretum Picnic",
       date: "September 14, 2025",
       time: "2:00 PM - 5:00 PM",
@@ -128,7 +128,7 @@ export default function Events() {
       month: "September",
     },
     {
-      id: 13,
+      id: 14,
       title: "Common Hour #1",
       date: "September 12, 2025",
       time: "6:00 PM - 8:00 PM",
@@ -137,7 +137,7 @@ export default function Events() {
       month: "September",
     },
     {
-      id: 14,
+      id: 15,
       title: "First GBM",
       date: "September 5, 2025",
       time: "6:00 PM - 8:00 PM",
