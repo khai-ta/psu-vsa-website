@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useState, useMemo } from "react";
 
 export default function Events() {
@@ -18,7 +17,7 @@ export default function Events() {
     },
   ];
 
-  const pastEvents = [
+  const pastEvents = useMemo(() => [
     {
       id: 2,
       title: "VSA x aKDPhi Game Night",
@@ -145,7 +144,7 @@ export default function Events() {
       description: "First general body meeting of the semester",
       month: "September",
     },
-  ];
+  ], []);
 
   // Get unique months for filter
   const availableMonths = useMemo(() => {

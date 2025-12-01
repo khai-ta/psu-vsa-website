@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function Membership() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-red-50">

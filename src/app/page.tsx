@@ -40,7 +40,7 @@ export default function Home() {
   const MOVE_SPEED = 0.5;
 
   useEffect(() => {
-    const animate = (timestamp: number) => {
+    const animate = () => {
       if (!isHovered && !isDragging && !isResetting) {
         const newPosition = position - MOVE_SPEED;
         if (newPosition <= -resetThreshold) {
