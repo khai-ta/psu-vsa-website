@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 
 interface Event {
   id: number;
@@ -40,9 +40,26 @@ function EventDayView({ date, month, dayEvents }: { date: number; month: string;
 }
 
 function EventCalendar({ events }: { events: Event[] }) {
-  const [currentMonth, setCurrentMonth] = useState(4); // April
-  const [currentYear, setCurrentYear] = useState(2026);
-  const [selectedDate, setSelectedDate] = useState<number | null>(27);
+  const [currentMonth, setCurrentMonth] = useState(0);
+  const [currentYear, setCurrentYear] = useState(0);
+  const [selectedDate, setSelectedDate] = useState<number | null>(null);
+  const [todayDate, setTodayDate] = useState(0);
+  const [todayMonth, setTodayMonth] = useState(0);
+  const [todayYear, setTodayYear] = useState(0);
+
+  useEffect(() => {
+    const today = new Date();
+    const month = today.getMonth() + 1;
+    const year = today.getFullYear();
+    const date = today.getDate();
+
+    setCurrentMonth(month);
+    setCurrentYear(year);
+    setSelectedDate(date);
+    setTodayDate(date);
+    setTodayMonth(month);
+    setTodayYear(year);
+  }, []);
 
   const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
@@ -110,28 +127,28 @@ function EventCalendar({ events }: { events: Event[] }) {
   };
 
   return (
-    <div className="grid gap-8 lg:grid-cols-3 mb-12">
+    <div className="grid gap-8 lg:grid-cols-3 mb-6 md:mb-12">
       <div className="lg:col-span-2">
-        <div className="rounded-lg border border-red-100 bg-white p-6 shadow-md">
+        <div className="rounded-lg border border-red-100 bg-white p-3 sm:p-6 shadow-md">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-[18px] font-semibold text-black">{month} {year}</h2>
             <div className="flex gap-2">
               <button
                 onClick={handlePrevMonth}
-                className="px-3 py-1 rounded border border-red-200 text-red-600 hover:bg-red-50 font-medium text-sm transition"
+                className="px-3 py-2 rounded border border-red-200 text-red-600 hover:bg-red-50 font-medium text-sm transition"
               >
                 ← Prev
               </button>
               <button
                 onClick={handleNextMonth}
-                className="px-3 py-1 rounded border border-red-200 text-red-600 hover:bg-red-50 font-medium text-sm transition"
+                className="px-3 py-2 rounded border border-red-200 text-red-600 hover:bg-red-50 font-medium text-sm transition"
               >
                 Next →
               </button>
             </div>
           </div>
 
-          <div className="mb-4 grid grid-cols-7 gap-2 text-center">
+          <div className="mb-4 grid grid-cols-7 gap-1 sm:gap-2 text-center">
             {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
               <div key={day} className="py-2 text-[12px] font-semibold text-gray-700">
                 {day}
@@ -139,7 +156,7 @@ function EventCalendar({ events }: { events: Event[] }) {
             ))}
           </div>
 
-          <div className="grid grid-cols-7 gap-2">
+          <div className="grid grid-cols-7 gap-1 sm:gap-2">
             {days.map((day, idx) => {
               if (day === null) {
                 return <div key={idx} className="aspect-square" />;
@@ -147,7 +164,7 @@ function EventCalendar({ events }: { events: Event[] }) {
 
               const hasEvent = datesWithEvents.has(day);
               const isSelected = day === selectedDate;
-              const isToday = day === 27 && currentMonth === 4 && currentYear === 2026;
+              const isToday = day === todayDate && currentMonth === todayMonth && currentYear === todayYear;
 
               return (
                 <button
@@ -174,7 +191,7 @@ function EventCalendar({ events }: { events: Event[] }) {
         </div>
       </div>
 
-      <div className="rounded-lg border border-red-100 bg-red-50 p-6 shadow-md">
+      <div className="rounded-lg border border-red-100 bg-red-50 p-3 sm:p-6 shadow-md">
         {selectedDate ? (
           <EventDayView date={selectedDate} month={month} dayEvents={selectedDayEvents} />
         ) : (

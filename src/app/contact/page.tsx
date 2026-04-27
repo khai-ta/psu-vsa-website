@@ -22,12 +22,12 @@ export default function Contact() {
             rel="noopener noreferrer"
             className="group bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 p-[2px] rounded-2xl shadow-lg hover:shadow-xl transition-all"
           >
-            <div className="bg-white rounded-2xl p-8 flex items-center justify-between transition-colors group-hover:bg-transparent">
+            <div className="bg-white rounded-2xl p-6 md:p-8 flex items-center justify-between transition-colors group-hover:bg-transparent">
               <div className="flex items-center gap-6">
                 <FaInstagram className="text-4xl text-purple-500 group-hover:text-white" />
                 <div>
                   <h3 className="font-bold text-2xl mb-2 text-black group-hover:text-white">Instagram</h3>
-                  <p className="text-gray-600 group-hover:text-white/90">Follow us @psu_vsa for updates and event photos</p>
+                  <p className="text-sm sm:text-base text-gray-600 group-hover:text-white/90">Follow us @psu_vsa for updates and event photos</p>
                 </div>
               </div>
               <span className="text-2xl text-black group-hover:text-white group-hover:translate-x-2 transition-transform">→</span>
@@ -41,12 +41,12 @@ export default function Contact() {
             rel="noopener noreferrer"
             className="group bg-gradient-to-r from-blue-600 to-blue-700 p-[2px] rounded-2xl shadow-lg hover:shadow-xl transition-all"
           >
-            <div className="bg-white rounded-2xl p-8 flex items-center justify-between transition-colors group-hover:bg-transparent">
+            <div className="bg-white rounded-2xl p-6 md:p-8 flex items-center justify-between transition-colors group-hover:bg-transparent">
               <div className="flex items-center gap-6">
                 <FaFacebook className="text-4xl text-blue-600 group-hover:text-white" />
                 <div>
                   <h3 className="font-bold text-2xl mb-2 text-black group-hover:text-white">Facebook</h3>
-                  <p className="text-gray-600 group-hover:text-white/90">
+                  <p className="text-sm sm:text-base text-gray-600 group-hover:text-white/90">
                     Follow us @PennStateVietnameseAssociation to stay updated with events and news
                   </p>
                 </div>
@@ -62,12 +62,12 @@ export default function Contact() {
             rel="noopener noreferrer"
             className="group bg-gradient-to-r from-red-500 to-red-600 p-[2px] rounded-2xl shadow-lg hover:shadow-xl transition-all"
           >
-            <div className="bg-white rounded-2xl p-8 flex items-center justify-between transition-colors group-hover:bg-transparent">
+            <div className="bg-white rounded-2xl p-6 md:p-8 flex items-center justify-between transition-colors group-hover:bg-transparent">
               <div className="flex items-center gap-6">
                 <FaFire className="text-4xl text-red-500 group-hover:text-white" />
                 <div>
                   <h3 className="font-bold text-2xl mb-2 text-black group-hover:text-white">Flare</h3>
-                  <p className="text-gray-600 group-hover:text-white/90">Join our community and track your points</p>
+                  <p className="text-sm sm:text-base text-gray-600 group-hover:text-white/90">Join our community and track your points</p>
                 </div>
               </div>
               <span className="text-2xl text-black group-hover:text-white group-hover:translate-x-2 transition-transform">→</span>
@@ -81,12 +81,12 @@ export default function Contact() {
             rel="noopener noreferrer"
             className="group bg-gradient-to-r from-green-400 to-blue-500 p-[2px] rounded-2xl shadow-lg hover:shadow-xl transition-all"
           >
-            <div className="bg-white rounded-2xl p-8 flex items-center justify-between transition-colors group-hover:bg-transparent">
+            <div className="bg-white rounded-2xl p-6 md:p-8 flex items-center justify-between transition-colors group-hover:bg-transparent">
               <div className="flex items-center gap-6">
                 <FaLink className="text-4xl text-green-500 group-hover:text-white" />
                 <div>
                   <h3 className="font-bold text-2xl mb-2 text-black group-hover:text-white">Linktree</h3>
-                  <p className="text-gray-600 group-hover:text-white/90">Quick access to all our important links</p>
+                  <p className="text-sm sm:text-base text-gray-600 group-hover:text-white/90">Quick access to all our important links</p>
                 </div>
               </div>
               <span className="text-2xl text-black group-hover:text-white group-hover:translate-x-2 transition-transform">→</span>

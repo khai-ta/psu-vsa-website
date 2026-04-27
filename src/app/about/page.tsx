@@ -72,7 +72,7 @@ export default function About() {
       <div className="max-w-6xl mx-auto px-4 py-16">
         {/* Mission Section */}
         <section className="mb-20">
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
+          <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-red-100">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">Our Mission</h2>
             <p className="text-lg text-gray-600 leading-relaxed">
               The Vietnamese Student Association at Penn State University is dedicated to promoting Vietnamese culture and heritage through various events and activities. We aim to create a welcoming community for students of all backgrounds to learn about and celebrate Vietnamese traditions while fostering cultural awareness and understanding on campus.
@@ -96,9 +96,9 @@ export default function About() {
         {/* Eboard Members */}
         <section className="mb-20">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-black">Executive Board</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-8">
             {eboardMembers.map((member) => (
-              <div key={member.position} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-red-100">
+              <div key={member.position} className="bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-red-100">
                 <div className="relative aspect-square">
                   <Image
                     src={member.image}
@@ -107,10 +107,10 @@ export default function About() {
                     className="object-cover"
                   />
                 </div>
-                <div className="p-6 h-[120px] flex flex-col justify-start">
-                  <h3 className="font-bold text-xl text-black">{member.name}</h3>
-                  <p className="text-red-600 font-medium">{member.position}</p>
-                  <p className="text-gray-600 text-sm">{member.year}</p>
+                <div className="p-3 md:p-6 min-h-[80px] md:min-h-[120px] flex flex-col justify-start">
+                  <h3 className="font-bold text-sm md:text-xl text-black">{member.name}</h3>
+                  <p className="text-red-600 font-medium text-xs md:text-base">{member.position}</p>
+                  <p className="text-gray-600 text-xs md:text-sm">{member.year}</p>
                 </div>
               </div>
             ))}
@@ -120,9 +120,9 @@ export default function About() {
         {/* Interns */}
         <section>
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-black">Interns</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             {interns.map((intern) => (
-              <div key={intern.name} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-red-100">
+              <div key={intern.name} className="bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-red-100">
                 <div className="relative aspect-square">
                   <Image
                     src={intern.image}
@@ -131,7 +131,7 @@ export default function About() {
                     className="object-cover"
                   />
                 </div>
-                <div className="p-6 h-[120px] flex flex-col justify-start">
+                <div className="p-3 md:p-6 min-h-[80px] md:min-h-[120px] flex flex-col justify-start">
                   <h3 className="font-bold text-xl text-black">{intern.name}</h3>
                   <p className="text-red-600 font-medium">{intern.position}</p>
                   <p className="text-gray-600 text-sm">{intern.year}</p>

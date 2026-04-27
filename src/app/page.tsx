@@ -125,11 +125,11 @@ export default function Home() {
           />
         </div>
         <div className="relative z-20 text-center text-white max-w-4xl mx-auto px-6">
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">PSU VSA</h1>
-          <p className="text-xl md:text-2xl mb-10 font-light">Vietnamese Student Association at Penn State</p>
-          <Link 
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 tracking-tight">PSU VSA</h1>
+          <p className="text-base sm:text-xl md:text-2xl mb-10 font-light">Vietnamese Student Association at Penn State</p>
+          <Link
             href="/about"
-            className="inline-flex items-center bg-white text-red-600 px-10 py-4 rounded-full hover:bg-red-50 transition-all font-semibold text-lg shadow-lg hover:shadow-xl group"
+            className="inline-flex items-center bg-white text-red-600 px-6 py-3 sm:px-10 sm:py-4 rounded-full hover:bg-red-50 transition-all font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl group"
           >
             <span>Learn More</span>
             <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
@@ -138,39 +138,39 @@ export default function Home() {
       </section>
 
       {/* Impact Section */}
-      <section className="py-24">
+      <section className="py-12 md:py-24">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold mb-20 text-center text-black">Our Impact</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-10 rounded-2xl bg-white border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-              <div className="text-6xl font-bold text-red-600 mb-3">
+          <h2 className="text-4xl md:text-5xl font-bold mb-10 md:mb-20 text-center text-black">Our Impact</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+            <div className="text-center p-4 md:p-10 rounded-xl md:rounded-2xl bg-white border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-red-600 mb-3">
                 <AnimatedNumber target={50} />
               </div>
-              <p className="text-lg text-gray-600 font-medium">Active Members</p>
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 font-medium">Active Members</p>
             </div>
-            <div className="text-center p-10 rounded-2xl bg-white border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-              <div className="text-6xl font-bold text-red-600 mb-3">
+            <div className="text-center p-4 md:p-10 rounded-xl md:rounded-2xl bg-white border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-red-600 mb-3">
                 <AnimatedNumber target={20} />
               </div>
-              <p className="text-lg text-gray-600 font-medium">Events Per Year</p>
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 font-medium">Events Per Year</p>
             </div>
-            <div className="text-center p-10 rounded-2xl bg-white border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-              <div className="text-6xl font-bold text-red-600 mb-3">
+            <div className="text-center p-4 md:p-10 rounded-xl md:rounded-2xl bg-white border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-red-600 mb-3">
                 $<AnimatedNumber target={6000} />
               </div>
-              <p className="text-lg text-gray-600 font-medium">Raised for THON</p>
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 font-medium">Raised for THON</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Gallery Section */}
-      <section className="py-24">
+      <section className="py-12 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold mb-20 text-center text-black">Our Moments</h2>
-          <div 
+          <h2 className="text-4xl md:text-5xl font-bold mb-10 md:mb-20 text-center text-black">Our Moments</h2>
+          <div
             ref={carouselRef}
-            className="relative w-full h-[350px] overflow-x-auto scrollbar-hide"
+            className="relative w-full h-[250px] sm:h-[350px] overflow-x-auto scrollbar-hide"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => {
               setIsHovered(false);
@@ -181,7 +181,7 @@ export default function Home() {
             onMouseUp={handleMouseUp}
           >
             <div
-              className="absolute flex gap-6 transition-transform duration-2000 cursor-grab active:cursor-grabbing"
+              className="absolute flex gap-3 sm:gap-6 transition-transform duration-2000 cursor-grab active:cursor-grabbing"
               style={{
                 transform: `translateX(${position}px)`,
                 transition: isResetting ? 'none' : 'transform 2s linear'
@@ -191,7 +191,7 @@ export default function Home() {
               {carouselImages.map((image, idx) => (
                 <div
                   key={`first-${idx}`}
-                  className="relative w-[350px] h-[350px] flex-none rounded-2xl overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-300"
+                  className="relative w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] flex-none rounded-2xl overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-300"
                 >
                   <Image
                     src={image}
@@ -206,7 +206,7 @@ export default function Home() {
               {carouselImages.map((image, idx) => (
                 <div
                   key={`second-${idx}`}
-                  className="relative w-[350px] h-[350px] flex-none rounded-2xl overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-300"
+                  className="relative w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] flex-none rounded-2xl overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-300"
                 >
                   <Image
                     src={image}
