@@ -6,37 +6,37 @@ export default function About() {
       name: "Vy Phan",
       position: "President & THON Chair",
       year: "Senior",
-      image: "/assets/VyPhan.jpg"
+      image: "/assets/eboard/VyPhan.JPG"
     },
     {
       name: "Khai Ta",
       position: "Vice President & Secretary",
       year: "Sophomore",
-      image: "/assets/KhaiTa.jpeg"
+      image: "/assets/eboard/KhaiTa.jpeg"
     },
     {
       name: "Khoi Nguyen",
       position: "Treasurer",
-      year: "Sophomore",
-      image: "/assets/KhoiNguyen.JPEG"
+      year: "Junior",
+      image: "/assets/eboard/KhoiNguyen.JPEG"
     },
     {
       name: "Trang Mai",
       position: "Event Chair",
       year: "Sophomore",
-      image: "/assets/TrangMai.jpg"
+      image: "/assets/eboard/TrangMai.jpg"
     },
     {
       name: "Nguyen Ngo",
       position: "External Relations Chair",
       year: "Sophomore",
-      image: "/assets/NguyenNgo.JPG"
+      image: "/assets/eboard/NguyenNgo.JPG"
     },
     {
       name: "Suri Phung",
       position: "Social Media Chair",
       year: "Freshman",
-      image: "/assets/SuriPhung.jpeg"
+      image: "/assets/eboard/SuriPhung.jpeg"
     }
   ];
 
@@ -45,25 +45,25 @@ export default function About() {
       name: "Loi Nguyen",
       position: "Intern",
       year: "Sophomore",
-      image: "/assets/LoiNguyen.JPG"
+      image: "/assets/eboard/LoiNguyen.JPG"
     },
     {
       name: "Vanessa Nguyen",
       position: "Intern",
       year: "Freshman",
-      image: "/assets/VanessaNguyen.JPG"
+      image: "/assets/eboard/VanessaNguyen.JPG"
     },
     {
       name: "Julianna Vo",
       position: "Intern",
       year: "Freshman",
-      image: "/assets/JuliannaVo.JPEG"
+      image: "/assets/eboard/JuliannaVo.JPEG"
     },
     {
       name: "Sophie Vu",
       position: "Intern",
       year: "Freshman",
-      image: "/assets/SophieVu.jpg"
+      image: "/assets/eboard/SophieVu.jpg"
     }
   ];
 
@@ -85,7 +85,7 @@ export default function About() {
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-black">Our Community</h2>
           <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg">
             <Image
-              src="/assets/members.PNG"
+              src="/assets/community/23277745-F7A7-44AC-A8CE-5DA5EE50FE86.JPG"
               alt="VSA Community"
               fill
               className="object-cover"

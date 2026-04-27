@@ -27,6 +27,29 @@ function AnimatedNumber({ target, duration = 2000 }: { target: number, duration?
 }
 
 export default function Home() {
+  const originalImages = [
+    "/assets/carousel/012D8E0C-4131-43A1-B836-7108FD854CED.JPG",
+    "/assets/carousel/12DFEA41-24FF-4721-AEFB-F8458CB5B198.JPG",
+    "/assets/carousel/1E1ED904-0F1E-4669-B59A-BA79ABAE3677.JPG",
+    "/assets/carousel/23277745-F7A7-44AC-A8CE-5DA5EE50FE86.JPG",
+    "/assets/carousel/4E6B9368-4579-4CFF-8300-D13D69060393.JPG",
+    "/assets/carousel/51A076AB-7D65-4BBD-8AB6-55D8F48A3AB0.JPG",
+    "/assets/carousel/589A8CDA-BD06-4B77-8CFF-75F1BE006730.JPG",
+    "/assets/carousel/A52B0174-F1A5-4ED7-B888-A50BE35E5629.JPG",
+    "/assets/carousel/E45FA66B-75C5-446F-BDE0-0D065CB78D6C.JPG",
+    "/assets/carousel/EE3A9F22-A435-4A7D-B820-9CDA4446416B.JPG",
+    "/assets/carousel/FE80FA00-A029-4599-8C27-637E614F566E.JPG",
+    "/assets/carousel/@@23:-OaHj5x-PULYncwGFeIH_tempFile.PNG",
+    "/assets/carousel/@@23:-OaHjHhKRjnG5v5X3oGD_tempFile.PNG",
+    "/assets/carousel/@@23:-OaHjHkWdmIE_EirIxuG_tempFile.PNG",
+    "/assets/carousel/@@23:-OaHjHp-r1e-q-F0RkvA_tempFile.PNG",
+    "/assets/carousel/@@23:-OaHjPqB1mJveDeDNiP6_tempFile.PNG",
+    "/assets/carousel/@@23:-OaHjPqpGUfHfq5gdVnH_tempFile.PNG",
+    "/assets/carousel/@@23:-OaHjPrVxVNhD0fTfXmU_tempFile.PNG",
+    "/assets/carousel/hero.jpg",
+  ];
+
+  const [carouselImages, setCarouselImages] = useState<string[]>([]);
   const [position, setPosition] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -38,6 +61,11 @@ export default function Home() {
   const animationRef = useRef<number | null>(null);
   const [isResetting, setIsResetting] = useState(false);
   const MOVE_SPEED = 0.5;
+
+  useEffect(() => {
+    const randomized = [...originalImages].sort(() => Math.random() - 0.5);
+    setCarouselImages(randomized);
+  }, []);
 
   useEffect(() => {
     const animate = () => {
@@ -89,7 +117,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60 z-10" />
         <div className="absolute inset-0">
           <Image
-            src="/assets/hero.jpg"
+            src="/assets/hero/flare_file_-OZ_LuY8RT0t3Bxnv2fS.JPEG"
             alt="VSA Members"
             fill
             className="object-cover"
@@ -152,21 +180,21 @@ export default function Home() {
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
           >
-            <div 
+            <div
               className="absolute flex gap-6 transition-transform duration-2000 cursor-grab active:cursor-grabbing"
-              style={{ 
+              style={{
                 transform: `translateX(${position}px)`,
                 transition: isResetting ? 'none' : 'transform 2s linear'
               }}
             >
               {/* First set */}
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+              {carouselImages.map((image, idx) => (
                 <div
-                  key={`first-${num}`}
+                  key={`first-${idx}`}
                   className="relative w-[350px] h-[350px] flex-none rounded-2xl overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-300"
                 >
                   <Image
-                    src={`/assets/gallery/${num}.jpg`}
+                    src={image}
                     alt="VSA Event"
                     fill
                     className="object-cover transition-all duration-500 group-hover:scale-105"
@@ -175,13 +203,13 @@ export default function Home() {
                 </div>
               ))}
               {/* Second set */}
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+              {carouselImages.map((image, idx) => (
                 <div
-                  key={`second-${num}`}
+                  key={`second-${idx}`}
                   className="relative w-[350px] h-[350px] flex-none rounded-2xl overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-300"
                 >
                   <Image
-                    src={`/assets/gallery/${num}.jpg`}
+                    src={image}
                     alt="VSA Event"
                     fill
                     className="object-cover transition-all duration-500 group-hover:scale-105"

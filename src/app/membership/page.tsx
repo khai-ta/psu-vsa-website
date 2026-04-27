@@ -61,7 +61,7 @@ export default function Membership() {
                   {/* Coupon Image */}
                   <div className="relative w-full max-w-lg h-[200px] rounded-xl overflow-hidden">
                     <Image
-                      src="/assets/vsa-membership-coupon.png"
+                      src="/assets/membership/vsa-membership-coupon.png"
                       alt="VSA Membership Coupon"
                       fill
                       className="object-contain object-left"
@@ -96,13 +96,13 @@ export default function Membership() {
                 <div className="w-full">
                   <h3 className="text-2xl font-bold mb-3 text-black">Free VSA Merch</h3>
                   <p className="text-gray-600 mb-6">
-                    Get free VSA merchandise (new design coming soon)
+                    Get free VSA merchandise
                   </p>
                   
                   {/* Merch Image */}
                   <div className="relative w-full max-w-lg h-[200px] rounded-xl overflow-hidden">
                     <Image
-                      src="/assets/vsa-merch.jpg"
+                      src="/assets/membership/vsa-merch.jpg"
                       alt="VSA Merchandise"
                       fill
                       className="object-contain object-left"
