@@ -3,10 +3,10 @@ import Image from "next/image";
 export default function About() {
   const eboardMembers = [
     {
-      name: "Anthony Khuc",
-      position: "President",
-      year: "Sophomore",
-      image: "/assets/AnthonyKhuc.jpg"
+      name: "Vy Phan",
+      position: "President & THON Chair",
+      year: "Senior",
+      image: "/assets/VyPhan.jpg"
     },
     {
       name: "Khai Ta",
@@ -15,10 +15,10 @@ export default function About() {
       image: "/assets/KhaiTa.jpeg"
     },
     {
-      name: "Vy Phan",
-      position: "Treasurer & THON Chair",
-      year: "Senior",
-      image: "/assets/VyPhan.jpg"
+      name: "Khoi Nguyen",
+      position: "Treasurer",
+      year: "Sophomore",
+      image: "/assets/KhoiNguyen.JPEG"
     },
     {
       name: "Trang Mai",
