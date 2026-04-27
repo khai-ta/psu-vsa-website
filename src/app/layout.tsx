@@ -22,6 +22,7 @@ export default function RootLayout({
       <head>
         <title>Penn State VSA | Vietnamese Student Association</title>
         <meta name="description" content="The official website of the Vietnamese Student Association at Penn State University" />
+        <meta name="google-site-verification" content="0s-mXBCCYlijSqB5YIzGBpnCdLjP263YiFWrmzdI-y8" />
       </head>
       <body className={`${geist.className} min-h-screen flex flex-col`}>
         <header className="bg-white shadow-sm">
