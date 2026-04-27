@@ -132,9 +132,9 @@ export default function About() {
                   />
                 </div>
                 <div className="p-3 md:p-6 min-h-[80px] md:min-h-[120px] flex flex-col justify-start">
-                  <h3 className="font-bold text-xl text-black">{intern.name}</h3>
-                  <p className="text-red-600 font-medium">{intern.position}</p>
-                  <p className="text-gray-600 text-sm">{intern.year}</p>
+                  <h3 className="font-bold text-sm md:text-xl text-black">{intern.name}</h3>
+                  <p className="text-red-600 font-medium text-xs md:text-base">{intern.position}</p>
+                  <p className="text-gray-600 text-xs md:text-sm">{intern.year}</p>
                 </div>
               </div>
             ))}

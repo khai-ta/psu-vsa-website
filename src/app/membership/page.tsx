@@ -100,23 +100,23 @@ export default function Membership() {
                   </p>
 
                   {/* Merch Images - Front and Back */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                    <div className="relative w-full max-w-xs h-[150px] md:h-[200px] rounded-xl overflow-hidden">
+                  <div className="grid grid-cols-2 gap-2 md:gap-6 max-w-md">
+                    <div className="relative w-full h-[100px] md:h-[200px] rounded-xl overflow-hidden">
                       <Image
                         src="/assets/membership/vsa-merch-front.png"
                         alt="VSA Merchandise - Front"
                         fill
                         className="object-contain"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
-                    <div className="relative w-full max-w-xs h-[150px] md:h-[200px] rounded-xl overflow-hidden">
+                    <div className="relative w-full h-[100px] md:h-[200px] rounded-xl overflow-hidden">
                       <Image
                         src="/assets/membership/vsa-merch-back.png"
                         alt="VSA Merchandise - Back"
                         fill
                         className="object-contain"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
                   </div>
