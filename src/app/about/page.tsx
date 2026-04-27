@@ -18,7 +18,7 @@ export default function About() {
       name: "Khoi Nguyen",
       position: "Treasurer",
       year: "Junior",
-      image: "/assets/eboard/KhoiNguyen.JPEG"
+      image: "/assets/KhoiNguyen.JPEG"
     },
     {
       name: "Trang Mai",

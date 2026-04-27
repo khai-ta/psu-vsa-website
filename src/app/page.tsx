@@ -56,6 +56,7 @@ export default function Home() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const totalWidth = 1600;
   const resetThreshold = totalWidth;
   const animationRef = useRef<number | null>(null);
@@ -63,11 +64,20 @@ export default function Home() {
   const MOVE_SPEED = 0.5;
 
   useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
     const randomized = [...originalImages].sort(() => Math.random() - 0.5);
     setCarouselImages(randomized);
   }, []);
 
   useEffect(() => {
+    if (isMobile) return;
+
     const animate = () => {
       if (!isHovered && !isDragging && !isResetting) {
         const newPosition = position - MOVE_SPEED;
@@ -88,7 +98,7 @@ export default function Home() {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [isHovered, isDragging, position, resetThreshold, isResetting]);
+  }, [isHovered, isDragging, position, resetThreshold, isResetting, isMobile]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
@@ -171,18 +181,23 @@ export default function Home() {
           <div
             ref={carouselRef}
             className="relative w-full h-[250px] sm:h-[350px] overflow-x-auto scrollbar-hide"
-            onMouseEnter={() => setIsHovered(true)}
+            onMouseEnter={() => {
+              if (!isMobile) setIsHovered(true);
+            }}
             onMouseLeave={() => {
-              setIsHovered(false);
+              if (!isMobile) setIsHovered(false);
               handleMouseUp();
             }}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
+            onMouseDown={isMobile ? undefined : handleMouseDown}
+            onMouseMove={isMobile ? undefined : handleMouseMove}
             onMouseUp={handleMouseUp}
           >
             <div
               className="absolute flex gap-3 sm:gap-6 transition-transform duration-2000 cursor-grab active:cursor-grabbing"
-              style={{
+              style={isMobile ? {
+                position: 'relative',
+                transform: 'none'
+              } : {
                 transform: `translateX(${position}px)`,
                 transition: isResetting ? 'none' : 'transform 2s linear'
               }}
