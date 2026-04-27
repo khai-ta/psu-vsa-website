@@ -21,8 +21,56 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>Penn State VSA | Vietnamese Student Association</title>
-        <meta name="description" content="The official website of the Vietnamese Student Association at Penn State University" />
+        <meta name="description" content="Join the Vietnamese Student Association at Penn State University. Celebrate Vietnamese culture, attend events, and connect with our community." />
+        <meta name="keywords" content="VSA, Vietnamese Student Association, Penn State, cultural organization" />
         <meta name="google-site-verification" content="0s-mXBCCYlijSqB5YIzGBpnCdLjP263YiFWrmzdI-y8" />
+
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.png" type="image/png" />
+
+        {/* Open Graph Tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://vsapsu.org" />
+        <meta property="og:title" content="Penn State VSA | Vietnamese Student Association" />
+        <meta property="og:description" content="Join the Vietnamese Student Association at Penn State University. Celebrate Vietnamese culture, attend events, and connect with our community." />
+        <meta property="og:image" content="https://vsapsu.org/assets/vsa-logo.png" />
+        <meta property="og:site_name" content="PSU VSA" />
+
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Penn State VSA | Vietnamese Student Association" />
+        <meta name="twitter:description" content="Join the Vietnamese Student Association at Penn State University. Celebrate Vietnamese culture, attend events, and connect with our community." />
+        <meta name="twitter:image" content="https://vsapsu.org/assets/vsa-logo.png" />
+
+        {/* Additional Meta Tags */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#dc2626" />
+        <meta name="author" content="PSU VSA" />
+        <link rel="canonical" href="https://vsapsu.org" />
+
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Penn State Vietnamese Student Association",
+              "url": "https://vsapsu.org",
+              "logo": "https://vsapsu.org/assets/vsa-logo.png",
+              "description": "The Vietnamese Student Association at Penn State University is dedicated to promoting Vietnamese culture and heritage through various events and activities.",
+              "sameAs": [
+                "https://instagram.com/psu_vsa",
+                "https://facebook.com/PennStateVietnameseAssociation"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "",
+                "contactType": "General"
+              }
+            })
+          }}
+        />
       </head>
       <body className={`${geist.className} min-h-screen flex flex-col`}>
         <header className="bg-white shadow-sm">
