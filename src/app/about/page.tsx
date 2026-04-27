@@ -6,37 +6,37 @@ export default function About() {
       name: "Anthony Khuc",
       position: "President",
       year: "Sophomore",
-      image: "/eboard/president.jpg"
+      image: "/assets/AnthonyKhuc.jpg"
     },
     {
       name: "Khai Ta",
       position: "Vice President & Secretary",
       year: "Sophomore",
-      image: "/eboard/secretary.jpg"
+      image: "/assets/KhaiTa.jpeg"
     },
     {
       name: "Vy Phan",
       position: "Treasurer & THON Chair",
       year: "Senior",
-      image: "/eboard/thon-chair.jpg"
+      image: "/assets/VyPhan.jpg"
     },
     {
       name: "Trang Mai",
       position: "Event Chair",
       year: "Sophomore",
-      image: "/eboard/event-chair.jpg"
+      image: "/assets/TrangMai.jpg"
     },
     {
       name: "Nguyen Ngo",
       position: "External Relations Chair",
       year: "Sophomore",
-      image: "/eboard/external-relations.jpg"
+      image: "/assets/NguyenNgo.JPG"
     },
     {
       name: "Suri Phung",
       position: "Social Media Chair",
       year: "Freshman",
-      image: "/eboard/placeholder.jpg"
+      image: "/assets/SuriPhung.jpeg"
     }
   ];
 
@@ -45,25 +45,25 @@ export default function About() {
       name: "Loi Nguyen",
       position: "Intern",
       year: "Sophomore",
-      image: "/eboard/placeholder.jpg"
+      image: "/assets/LoiNguyen.JPG"
     },
     {
       name: "Vanessa Nguyen",
       position: "Intern",
       year: "Freshman",
-      image: "/eboard/placeholder.jpg"
+      image: "/assets/VanessaNguyen.JPG"
     },
     {
       name: "Julianna Vo",
       position: "Intern",
       year: "Freshman",
-      image: "/eboard/placeholder.jpg"
+      image: "/assets/JuliannaVo.JPEG"
     },
     {
       name: "Sophie Vu",
       position: "Intern",
       year: "Freshman",
-      image: "/eboard/placeholder.jpg"
+      image: "/assets/SophieVu.jpg"
     }
   ];
 

@@ -1,24 +1,194 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import Image from 'next/image';
+
+interface Event {
+  id: number;
+  title: string;
+  date: string;
+  time: string;
+  location: string;
+  description: string;
+  month?: string;
+  rsvpLink?: string;
+}
+
+function EventDayView({ date, month, dayEvents }: { date: number; month: string; dayEvents: Event[] }) {
+  return (
+    <div className="space-y-4">
+      <h3 className="text-[14px] font-semibold text-black">
+        {month} {date}, 2025
+      </h3>
+      {dayEvents.length === 0 ? (
+        <p className="text-[14px] text-gray-600">No events scheduled for this day</p>
+      ) : (
+        <div className="space-y-3">
+          {dayEvents.map((event) => (
+            <div key={event.id} className="rounded-lg border border-red-100 bg-red-50 p-4">
+              <h4 className="font-semibold text-black mb-2">{event.title}</h4>
+              <div className="space-y-1 text-[13px] text-gray-700">
+                <p>🕐 {event.time}</p>
+                <p>📍 {event.location}</p>
+                <p className="text-sm mt-2">{event.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function EventCalendar({ events }: { events: Event[] }) {
+  const [currentMonth, setCurrentMonth] = useState(4); // April
+  const [currentYear, setCurrentYear] = useState(2026);
+  const [selectedDate, setSelectedDate] = useState<number | null>(27);
+
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+  const month = monthNames[currentMonth - 1];
+  const monthNum = currentMonth;
+  const year = currentYear;
+
+  const daysInMonths: { [key: number]: number } = {
+    1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30,
+    7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31
+  };
+
+  const daysInMonth = daysInMonths[monthNum];
+  const firstDayOfMonth = new Date(year, monthNum - 1, 1).getDay();
+
+  const datesWithEvents = useMemo(() => {
+    const filtered = events.filter((e) => {
+      const eventDate = new Date(e.date);
+      return (
+        eventDate.getMonth() === monthNum - 1 &&
+        eventDate.getFullYear() === year
+      );
+    });
+
+    const eventMap = new Map<number, Event[]>();
+    filtered.forEach((e) => {
+      const day = new Date(e.date).getDate();
+      if (!eventMap.has(day)) {
+        eventMap.set(day, []);
+      }
+      eventMap.get(day)!.push(e);
+    });
+
+    return eventMap;
+  }, [events, monthNum, year]);
+
+  const selectedDayEvents = selectedDate ? (datesWithEvents.get(selectedDate) || []) : [];
+
+  const days = [];
+  for (let i = 0; i < firstDayOfMonth; i++) {
+    days.push(null);
+  }
+  for (let i = 1; i <= daysInMonth; i++) {
+    days.push(i);
+  }
+
+  const handlePrevMonth = () => {
+    if (currentMonth === 1) {
+      setCurrentMonth(12);
+      setCurrentYear(currentYear - 1);
+    } else {
+      setCurrentMonth(currentMonth - 1);
+    }
+    setSelectedDate(null);
+  };
+
+  const handleNextMonth = () => {
+    if (currentMonth === 12) {
+      setCurrentMonth(1);
+      setCurrentYear(currentYear + 1);
+    } else {
+      setCurrentMonth(currentMonth + 1);
+    }
+    setSelectedDate(null);
+  };
+
+  return (
+    <div className="grid gap-8 lg:grid-cols-3 mb-12">
+      <div className="lg:col-span-2">
+        <div className="rounded-lg border border-red-100 bg-white p-6 shadow-md">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-[18px] font-semibold text-black">{month} {year}</h2>
+            <div className="flex gap-2">
+              <button
+                onClick={handlePrevMonth}
+                className="px-3 py-1 rounded border border-red-200 text-red-600 hover:bg-red-50 font-medium text-sm transition"
+              >
+                ← Prev
+              </button>
+              <button
+                onClick={handleNextMonth}
+                className="px-3 py-1 rounded border border-red-200 text-red-600 hover:bg-red-50 font-medium text-sm transition"
+              >
+                Next →
+              </button>
+            </div>
+          </div>
+
+          <div className="mb-4 grid grid-cols-7 gap-2 text-center">
+            {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
+              <div key={day} className="py-2 text-[12px] font-semibold text-gray-700">
+                {day}
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-7 gap-2">
+            {days.map((day, idx) => {
+              if (day === null) {
+                return <div key={idx} className="aspect-square" />;
+              }
+
+              const hasEvent = datesWithEvents.has(day);
+              const isSelected = day === selectedDate;
+              const isToday = day === 27 && currentMonth === 4 && currentYear === 2026;
+
+              return (
+                <button
+                  key={idx}
+                  onClick={() => setSelectedDate(day)}
+                  className={`relative aspect-square rounded-lg border py-2 text-[13px] font-medium transition-all ${
+                    isToday
+                      ? "border-red-600 bg-red-100 text-red-600 font-bold ring-2 ring-red-400"
+                      : isSelected
+                        ? "border-red-600 bg-red-50 text-black font-semibold"
+                        : hasEvent
+                          ? "border-red-200 bg-white text-black hover:bg-red-50"
+                          : "border-gray-200 bg-white text-gray-500 hover:bg-gray-50"
+                  }`}
+                >
+                  {day}
+                  {hasEvent && (
+                    <div className={`absolute bottom-1 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full ${isToday || isSelected ? "bg-red-600" : "bg-red-400"}`} />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      <div className="rounded-lg border border-red-100 bg-red-50 p-6 shadow-md">
+        {selectedDate ? (
+          <EventDayView date={selectedDate} month={month} dayEvents={selectedDayEvents} />
+        ) : (
+          <div className="text-center text-gray-600">
+            <p className="text-sm">Click on a date to see events</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function Events() {
-  const [sortBy, setSortBy] = useState<"date-desc" | "date-asc" | "title">("date-desc");
-  const [filterMonth, setFilterMonth] = useState<string>("all");
-  const upcomingEvents = [
-    {
-      id: 1,
-      title: "VSA x PSFA Bonfire",
-      date: "TBD",
-      time: "TBD",
-      location: "TBD",
-      description: "Free s'mores and hot cocoa",
-      rsvpLink: "https://docs.google.com/forms/d/e/1FAIpQLSeFUj5tC4lHvhEWWICnXhYs4BPvLEbR6c_XDbjeGdCs2aDbCA/viewform"
-    },
-  ];
-
-  const pastEvents = useMemo(() => [
+  const pastEvents: Event[] = [
     {
       id: 2,
       title: "VSA x aKDPhi Game Night",
@@ -145,176 +315,15 @@ export default function Events() {
       description: "First general body meeting of the semester",
       month: "September",
     },
-  ], []);
-
-  // Get unique months for filter
-  const availableMonths = useMemo(() => {
-    const months = [...new Set(pastEvents.map(event => event.month))];
-    return months.sort((a, b) => {
-      const monthOrder = ["September", "October", "November", "December"];
-      return monthOrder.indexOf(a) - monthOrder.indexOf(b);
-    });
-  }, [pastEvents]);
-
-  // Filter and sort events
-  const filteredAndSortedEvents = useMemo(() => {
-    let filtered = pastEvents;
-
-    // Apply month filter
-    if (filterMonth !== "all") {
-      filtered = filtered.filter(event => event.month === filterMonth);
-    }
-
-    // Apply sorting
-    const sorted = [...filtered].sort((a, b) => {
-      if (sortBy === "title") {
-        return a.title.localeCompare(b.title);
-      }
-      
-      // For date sorting, parse the date string
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      
-      if (sortBy === "date-desc") {
-        return dateB.getTime() - dateA.getTime(); // Newest first
-      } else {
-        return dateA.getTime() - dateB.getTime(); // Oldest first
-      }
-    });
-
-    return sorted;
-  }, [filterMonth, sortBy, pastEvents]);
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-red-50">
       <div className="max-w-5xl mx-auto px-4 py-16">
-        {/* Tet Section */}
-        <section className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-black">Tet Celebration</h2>
-          <div className="bg-gradient-to-br from-red-50 to-yellow-50 border border-red-200 rounded-2xl overflow-hidden shadow-lg">
-            {/* Tet Image */}
-            <div className="relative w-full h-[400px]">
-              <Image
-                src="/assets/tet-mua-lan.PNG"
-                alt="Tet Mua Lan Celebration"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
-              />
-            </div>
-            
-            <div className="p-8">
-              <div className="text-center mb-4">
-                <h3 className="text-2xl font-bold text-black mb-2">Vietnamese Lunar New Year</h3>
-                <p className="text-xl text-red-600 font-medium mb-2">February 8, 2026</p>
-                <p className="text-lg text-gray-600">Alumni Hall, HUB</p>
-              </div>
-              <p className="text-gray-700 text-center mb-4 text-lg">
-                Celebrate the Year of the Horse with exciting games, captivating performances including lion dance, mixed dance, ao dai catwalk, skits, and singing, plus delicious authentic Vietnamese food!
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Upcoming Events */}
-        <section className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-black">Upcoming Events</h2>
-          <div className="grid gap-8">
-            {upcomingEvents.map((event) => (
-              <div key={event.id} className="bg-white border border-red-100 rounded-2xl p-8 hover:shadow-lg transition-all shadow-md">
-                <div className="flex flex-col gap-4">
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-2xl font-bold text-black">{event.title}</h3>
-                      <a
-                        href={event.rsvpLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 font-semibold group transition-colors"
-                      >
-                        <span>RSVP</span>
-                        <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                      </a>
-                    </div>
-                    <div className="mt-3 space-y-2">
-                      <p className="text-red-600 font-medium">{event.date} @ {event.time}</p>
-                      <p className="text-gray-600">{event.location}</p>
-                    </div>
-                  </div>
-                  <p className="text-gray-700 text-lg">{event.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Past Events*/}
+        {/* Events Calendar */}
         <section>
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-black">Past Events</h2>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              {/* Month Filter */}
-              <div className="flex items-center gap-3">
-                <label htmlFor="month-filter" className="text-sm font-semibold text-black whitespace-nowrap">
-                  Filter by:
-                </label>
-                <select
-                  id="month-filter"
-                  value={filterMonth}
-                  onChange={(e) => setFilterMonth(e.target.value)}
-                  className="border border-red-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-300 bg-white text-black shadow-sm"
-                >
-                  <option value="all">All Months</option>
-                  {availableMonths.map((month) => (
-                    <option key={month} value={month}>
-                      {month}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Sort By */}
-              <div className="flex items-center gap-3">
-                <label htmlFor="sort-by" className="text-sm font-semibold text-black whitespace-nowrap">
-                  Sort by:
-                </label>
-                <select
-                  id="sort-by"
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value as "date-desc" | "date-asc" | "title")}
-                  className="border border-red-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-300 bg-white text-black shadow-sm"
-                >
-                  <option value="date-desc">Newest First</option>
-                  <option value="date-asc">Oldest First</option>
-                  <option value="title">Title (A-Z)</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid gap-6">
-            {filteredAndSortedEvents.length > 0 ? (
-              filteredAndSortedEvents.map((event) => (
-                <div key={event.id} className="bg-white border border-red-100 rounded-2xl p-8 hover:shadow-lg transition-all shadow-md">
-                  <div className="flex flex-col gap-4">
-                    <div>
-                      <h3 className="text-2xl font-bold text-black">{event.title}</h3>
-                      <div className="mt-3 space-y-2">
-                        <p className="text-red-600 font-medium">{event.date} @ {event.time}</p>
-                        <p className="text-gray-600">{event.location}</p>
-                      </div>
-                    </div>
-                    <p className="text-gray-700 text-lg">{event.description}</p>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <div className="bg-white border border-red-100 rounded-2xl p-12 text-center shadow-md">
-                <p className="text-gray-600 text-lg">No events found for the selected filter.</p>
-              </div>
-            )}
-          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-black">Events</h2>
+          <EventCalendar events={pastEvents} />
         </section>
       </div>
     </div>
