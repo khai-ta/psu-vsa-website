@@ -1,6 +1,6 @@
 'use client';
 
-import { FaInstagram, FaLink, FaFacebook, FaFire } from 'react-icons/fa';
+import { SiInstagram, SiFacebook, SiGroupme, SiLinktree } from 'react-icons/si';
 
 export default function Contact() {
 
@@ -24,7 +24,7 @@ export default function Contact() {
           >
             <div className="bg-white rounded-2xl p-6 md:p-8 flex items-center justify-between transition-colors group-hover:bg-transparent">
               <div className="flex items-center gap-6">
-                <FaInstagram className="text-4xl text-purple-500 group-hover:text-white" />
+                <SiInstagram className="text-4xl text-purple-500 group-hover:text-white" />
                 <div>
                   <h3 className="font-bold text-2xl mb-2 text-black group-hover:text-white">Instagram</h3>
                   <p className="text-sm sm:text-base text-gray-600 group-hover:text-white/90">Follow us @psu_vsa for updates and event photos</p>
@@ -43,7 +43,7 @@ export default function Contact() {
           >
             <div className="bg-white rounded-2xl p-6 md:p-8 flex items-center justify-between transition-colors group-hover:bg-transparent">
               <div className="flex items-center gap-6">
-                <FaFacebook className="text-4xl text-blue-600 group-hover:text-white" />
+                <SiFacebook className="text-4xl text-blue-600 group-hover:text-white" />
                 <div>
                   <h3 className="font-bold text-2xl mb-2 text-black group-hover:text-white">Facebook</h3>
                   <p className="text-sm sm:text-base text-gray-600 group-hover:text-white/90">
@@ -55,19 +55,19 @@ export default function Contact() {
             </div>
           </a>
 
-          {/* Flare */}
+          {/* GroupMe */}
           <a 
-            href="https://flare-event.app.link/ISoIUZ3BzYb" 
+            href="https://web.groupme.com/join_group/116384276/7MWMJxw7" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="group bg-gradient-to-r from-red-500 to-red-600 p-[2px] rounded-2xl shadow-lg hover:shadow-xl transition-all"
+            className="group bg-gradient-to-r from-cyan-400 to-cyan-500 p-[2px] rounded-2xl shadow-lg hover:shadow-xl transition-all"
           >
             <div className="bg-white rounded-2xl p-6 md:p-8 flex items-center justify-between transition-colors group-hover:bg-transparent">
               <div className="flex items-center gap-6">
-                <FaFire className="text-4xl text-red-500 group-hover:text-white" />
+                <SiGroupme className="text-4xl text-red-500 group-hover:text-white" />
                 <div>
-                  <h3 className="font-bold text-2xl mb-2 text-black group-hover:text-white">Flare</h3>
-                  <p className="text-sm sm:text-base text-gray-600 group-hover:text-white/90">Join our community and track your points</p>
+                  <h3 className="font-bold text-2xl mb-2 text-black group-hover:text-white">GroupMe</h3>
+                  <p className="text-sm sm:text-base text-gray-600 group-hover:text-white/90">Join our GroupMe to stay connected and get updates</p>
                 </div>
               </div>
               <span className="text-2xl text-black group-hover:text-white group-hover:translate-x-2 transition-transform">→</span>
@@ -83,7 +83,7 @@ export default function Contact() {
           >
             <div className="bg-white rounded-2xl p-6 md:p-8 flex items-center justify-between transition-colors group-hover:bg-transparent">
               <div className="flex items-center gap-6">
-                <FaLink className="text-4xl text-green-500 group-hover:text-white" />
+                <SiLinktree className="text-4xl text-green-500 group-hover:text-white" />
                 <div>
                   <h3 className="font-bold text-2xl mb-2 text-black group-hover:text-white">Linktree</h3>
                   <p className="text-sm sm:text-base text-gray-600 group-hover:text-white/90">Quick access to all our important links</p>
