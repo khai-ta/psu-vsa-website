@@ -64,7 +64,7 @@ export default function Contact() {
           >
             <div className="bg-white rounded-2xl p-6 md:p-8 flex items-center justify-between transition-colors group-hover:bg-transparent">
               <div className="flex items-center gap-6">
-                <SiGroupme className="text-4xl text-red-500 group-hover:text-white" />
+                <SiGroupme className="text-4xl text-cyan-500 group-hover:text-white" />
                 <div>
                   <h3 className="font-bold text-2xl mb-2 text-black group-hover:text-white">GroupMe</h3>
                   <p className="text-sm sm:text-base text-gray-600 group-hover:text-white/90">Join our GroupMe to stay connected and get updates</p>
