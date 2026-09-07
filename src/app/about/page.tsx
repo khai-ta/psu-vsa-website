@@ -1,7 +1,14 @@
 import Image from "next/image";
 
+type Member = {
+  name: string;
+  position: string;
+  year: string;
+  image: string;
+};
+
 export default function About() {
-  const eboardMembers = [
+  const eboardMembers: Member[] = [
     {
       name: "Khoi Nguyen",
       position: "President & THON Chair",
@@ -34,7 +41,7 @@ export default function About() {
     }
   ];
 
-  const interns = [
+  const interns: Member[] = [
     // {
     //   name: "Loi Nguyen",
     //   position: "Intern",
@@ -72,9 +79,9 @@ export default function About() {
         {/* Eboard Members */}
         <section className="mb-20">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-black">Executive Board</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-8">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-8">
             {eboardMembers.map((member) => (
-              <div key={member.position} className="bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-red-100">
+              <div key={member.position} className="w-[calc(50%-0.5rem)] md:w-[calc(33.333%-1.34rem)] bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-red-100">
                 <div className="relative aspect-square">
                   <Image
                     src={member.image}
@@ -94,49 +101,35 @@ export default function About() {
         </section>
 
         {/* Interns */}
-          <section>
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-black">
-              Interns
-            </h2>
-
-            {interns.length === 0 ? (
-              <div className="flex justify-center">
-                <p className="text-gray-600 text-lg">
-                  None at present
-                </p>
-              </div>
-            ) : (
-              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-                {interns.map((intern) => (
-                  <div
-                    key={intern.name}
-                    className="bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-red-100"
-                  >
-                    <div className="relative aspect-square">
-                      <Image
-                        src={intern.image}
-                        alt={`${intern.name} - ${intern.position}`}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="p-3 md:p-6 min-h-[80px] md:min-h-[120px] flex flex-col justify-start">
-                      <h3 className="font-bold text-sm md:text-xl text-black">
-                        {intern.name}
-                      </h3>
-                      <p className="text-red-600 font-medium text-xs md:text-base">
-                        {intern.position}
-                      </p>
-                      <p className="text-gray-600 text-xs md:text-sm">
-                        {intern.year}
-                      </p>
-                    </div>
+        <section>
+          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-black">Interns</h2>
+          {interns.length === 0 ? (
+            <div className="flex justify-center">
+              <p className="text-gray-600 text-lg">Coming soon...</p>
+            </div>
+          ) : (
+            <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+              {interns.map((intern) => (
+                <div key={intern.name} className="w-[calc(50%-0.5rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-red-100">
+                  <div className="relative aspect-square">
+                    <Image
+                      src={intern.image}
+                      alt={`${intern.name} - ${intern.position}`}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
-                ))}
-              </div>
-            )}
-          </section>
+                  <div className="p-3 md:p-6 min-h-[80px] md:min-h-[120px] flex flex-col justify-start">
+                    <h3 className="font-bold text-sm md:text-xl text-black">{intern.name}</h3>
+                    <p className="text-red-600 font-medium text-xs md:text-base">{intern.position}</p>
+                    <p className="text-gray-600 text-xs md:text-sm">{intern.year}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
       </div>
     </div>
   );
-} 
+}
