@@ -1,70 +1,53 @@
 import Image from "next/image";
 
+type Member = {
+  name: string;
+  position: string;
+  year: string;
+  image: string;
+};
+
 export default function About() {
-  const eboardMembers = [
-    {
-      name: "Vy Phan",
-      position: "President & THON Chair",
-      year: "Senior",
-      image: "/assets/eboard/VyPhan.JPG"
-    },
-    {
-      name: "Khai Ta",
-      position: "Vice President & Secretary",
-      year: "Sophomore",
-      image: "/assets/eboard/KhaiTa.jpeg"
-    },
+  const eboardMembers: Member[] = [
     {
       name: "Khoi Nguyen",
-      position: "Treasurer",
-      year: "Junior",
-      image: "/assets/eboard/KhoiNguyen.JPG"
+      position: "President & THON Chair",
+      year: "Senior",
+      image: "/assets/eboard/Khoi.jpg"
     },
-    {
-      name: "Trang Mai",
-      position: "Event Chair",
-      year: "Sophomore",
-      image: "/assets/eboard/TrangMai.jpg"
-    },
-    {
-      name: "Nguyen Ngo",
-      position: "External Relations Chair",
-      year: "Sophomore",
-      image: "/assets/eboard/NguyenNgo.JPG"
-    },
-    {
-      name: "Suri Phung",
-      position: "Social Media Chair",
-      year: "Freshman",
-      image: "/assets/eboard/SuriPhung.jpeg"
-    }
-  ];
-
-  const interns = [
     {
       name: "Loi Nguyen",
-      position: "Intern",
-      year: "Sophomore",
-      image: "/assets/eboard/LoiNguyen.JPG"
-    },
-    {
-      name: "Vanessa Nguyen",
-      position: "Intern",
-      year: "Freshman",
-      image: "/assets/eboard/VanessaNguyen.JPG"
-    },
-    {
-      name: "Julianna Vo",
-      position: "Intern",
-      year: "Freshman",
-      image: "/assets/eboard/JuliannaVo.JPEG"
+      position: "Vice President",
+      year: "Junior",
+      image: "/assets/eboard/Loi.JPG"
     },
     {
       name: "Sophie Vu",
-      position: "Intern",
-      year: "Freshman",
-      image: "/assets/eboard/SophieVu.jpg"
+      position: "Executive Financial Chair",
+      year: "Sophomore",
+      image: "/assets/eboard/Sophie.JPG"
+    },
+    {
+      name: "Mia Ngo",
+      position: "Executive Event Chair",
+      year: "Sophomore",
+      image: "/assets/eboard/Mia.jpeg"
+    },
+    {
+      name: "Duong Luong",
+      position: "Executive Marketing Chair",
+      year: "Sophomore",
+      image: "/assets/eboard/Duong.jpg"
     }
+  ];
+
+  const interns: Member[] = [
+    // {
+    //   name: "Loi Nguyen",
+    //   position: "Intern",
+    //   year: "Sophomore",
+    //   image: "/assets/eboard/LoiNguyen.JPG"
+    // }
   ];
 
   return (
@@ -96,9 +79,9 @@ export default function About() {
         {/* Eboard Members */}
         <section className="mb-20">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-black">Executive Board</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-8">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-8">
             {eboardMembers.map((member) => (
-              <div key={member.position} className="bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-red-100">
+              <div key={member.position} className="w-[calc(50%-0.5rem)] md:w-[calc(33.333%-1.34rem)] bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-red-100">
                 <div className="relative aspect-square">
                   <Image
                     src={member.image}
@@ -120,27 +103,33 @@ export default function About() {
         {/* Interns */}
         <section>
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-black">Interns</h2>
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-            {interns.map((intern) => (
-              <div key={intern.name} className="bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-red-100">
-                <div className="relative aspect-square">
-                  <Image
-                    src={intern.image}
-                    alt={`${intern.name} - ${intern.position}`}
-                    fill
-                    className="object-cover"
-                  />
+          {interns.length === 0 ? (
+            <div className="flex justify-center">
+              <p className="text-gray-600 text-lg">Coming soon...</p>
+            </div>
+          ) : (
+            <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+              {interns.map((intern) => (
+                <div key={intern.name} className="w-[calc(50%-0.5rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-red-100">
+                  <div className="relative aspect-square">
+                    <Image
+                      src={intern.image}
+                      alt={`${intern.name} - ${intern.position}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-3 md:p-6 min-h-[80px] md:min-h-[120px] flex flex-col justify-start">
+                    <h3 className="font-bold text-sm md:text-xl text-black">{intern.name}</h3>
+                    <p className="text-red-600 font-medium text-xs md:text-base">{intern.position}</p>
+                    <p className="text-gray-600 text-xs md:text-sm">{intern.year}</p>
+                  </div>
                 </div>
-                <div className="p-3 md:p-6 min-h-[80px] md:min-h-[120px] flex flex-col justify-start">
-                  <h3 className="font-bold text-sm md:text-xl text-black">{intern.name}</h3>
-                  <p className="text-red-600 font-medium text-xs md:text-base">{intern.position}</p>
-                  <p className="text-gray-600 text-xs md:text-sm">{intern.year}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </section>
       </div>
     </div>
   );
-} 
+}
