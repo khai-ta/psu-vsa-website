@@ -30,7 +30,7 @@ export default function About() {
       name: "Duong Luong",
       position: "Executive Marketing Chair",
       year: "Sophomore",
-      // image: "/assets/eboard/"
+      image: "/assets/eboard/Duong.jpg"
     }
   ];
 
