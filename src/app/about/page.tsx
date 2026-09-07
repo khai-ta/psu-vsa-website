@@ -3,40 +3,34 @@ import Image from "next/image";
 export default function About() {
   const eboardMembers = [
     {
-      name: "Vy Phan",
+      name: "Khoi Nguyen",
       position: "President & THON Chair",
       year: "Senior",
-      image: "/assets/eboard/VyPhan.JPG"
+      image: "/assets/eboard/Khoi.jpg"
     },
     {
-      name: "Khai Ta",
-      position: "Vice President & Secretary",
-      year: "Sophomore",
-      image: "/assets/eboard/KhaiTa.jpeg"
-    },
-    {
-      name: "Khoi Nguyen",
-      position: "Treasurer",
+      name: "Loi Nguyen",
+      position: "Vice President",
       year: "Junior",
-      image: "/assets/eboard/KhoiNguyen.JPG"
+      image: "/assets/eboard/Loi.JPG"
     },
     {
-      name: "Trang Mai",
-      position: "Event Chair",
+      name: "Sophie Vu",
+      position: "Executive Financial Chair",
       year: "Sophomore",
-      image: "/assets/eboard/TrangMai.jpg"
+      image: "/assets/eboard/Sophie.JPG"
     },
     {
-      name: "Nguyen Ngo",
-      position: "External Relations Chair",
+      name: "Mia Ngo",
+      position: "Executive Event Chair",
       year: "Sophomore",
-      image: "/assets/eboard/NguyenNgo.JPG"
+      image: "/assets/eboard/Mia.jpeg"
     },
     {
-      name: "Suri Phung",
-      position: "Social Media Chair",
-      year: "Freshman",
-      image: "/assets/eboard/SuriPhung.jpeg"
+      name: "Duong Luong",
+      position: "Executive Marketing Chair",
+      year: "Sophomore",
+      // image: "/assets/eboard/"
     }
   ];
 
