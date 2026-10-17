@@ -18,18 +18,41 @@ export default function Membership() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
             <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-shadow border border-red-100">
               <div className="text-4xl md:text-5xl font-bold mb-4 text-red-600">1</div>
-              <h3 className="text-lg md:text-xl font-bold mb-3 text-black">Sign Up</h3>
-              <p className="text-sm md:text-base text-gray-600">Follow us on Flare to become a member</p>
+              <h3 className="text-lg md:text-xl font-bold mb-3 text-black">Get Your Stamp Card</h3>
+              <p className="text-sm md:text-base text-gray-600">Come to any event for your card and first stamp</p>
             </div>
             <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-shadow border border-red-100">
               <div className="text-4xl md:text-5xl font-bold mb-4 text-red-600">2</div>
               <h3 className="text-lg md:text-xl font-bold mb-3 text-black">Attend Events</h3>
-              <p className="text-sm md:text-base text-gray-600">Earn points for participating in events</p>
+              <p className="text-sm md:text-base text-gray-600">Earn stamps for participating in events</p>
             </div>
             <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-shadow border border-red-100">
               <div className="text-4xl md:text-5xl font-bold mb-4 text-red-600">3</div>
               <h3 className="text-lg md:text-xl font-bold mb-3 text-black">Get Rewards</h3>
-              <p className="text-sm md:text-base text-gray-600">Redeem your points for exclusive rewards</p>
+              <p className="text-sm md:text-base text-gray-600">Redeem your stamps for exclusive rewards</p>
+            </div>
+          </div>
+
+          {/* Stamp Card Images */}
+          <div className="flex flex-col md:flex-row justify-center items-center gap-6 mt-10">
+            <div className="relative w-full max-w-sm h-[200px] rounded-xl overflow-hidden">
+              <Image
+                src="/assets/membership/vsa-stamp-card-front.jpg"
+                alt="First picture"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+
+            <div className="relative w-full max-w-sm h-[200px] rounded-xl overflow-hidden">
+              <Image
+                src="/assets/membership/vsa-stamp-card-back.jpg"
+                alt="Second picture"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
           </div>
         </section>
@@ -39,16 +62,31 @@ export default function Membership() {
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-black">Membership Rewards</h2>
 
           <div className="space-y-6 md:space-y-8">
-            {/* 2 Points Reward */}
+            {/* 7 Stamps Reward */}
             <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-all border border-red-100">
               <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6">
                 <div className="bg-red-600 text-white rounded-full px-4 md:px-5 py-2 font-bold shrink-0 shadow-md text-sm md:text-base">
-                  2 Points
+                  7 Stamps
                 </div>
                 <div className="w-full">
-                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-black">10% Off Sponsor Coupon</h3>
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-black">Free VSA Keychain</h3>
                   <p className="text-sm md:text-base text-gray-600 mb-4">
-                    Get a 10% discount coupon at any of our sponsors:
+                    Receive this year's exclusive VSA keychain
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 10 Stamps Reward */}
+            <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-all border border-red-100">
+              <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6">
+                <div className="bg-red-600 text-white rounded-full px-4 md:px-5 py-2 font-bold shrink-0 shadow-md text-sm md:text-base">
+                  10 Stamps
+                </div>
+                <div>
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-black">Sponsor Coupon</h3>
+                  <p className="text-sm md:text-base text-gray-600">
+                    Receive a discount coupon for any of our sponsors
                   </p>
                   <ul className="list-disc list-inside text-sm md:text-base text-gray-600 space-y-2 mb-6">
                     <li>Tasty K</li>
@@ -72,54 +110,17 @@ export default function Membership() {
               </div>
             </div>
 
-            {/* 5 Points Reward */}
+            {/* 15 Stamps Reward */}
             <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-all border border-red-100">
               <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6">
                 <div className="bg-red-600 text-white rounded-full px-4 md:px-5 py-2 font-bold shrink-0 shadow-md text-sm md:text-base">
-                  5 Points
-                </div>
-                <div>
-                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-black">Free Event Entry</h3>
-                  <p className="text-sm md:text-base text-gray-600">
-                    Get free entrance to any of our paid events (excluding Tet)
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* 10 Points Reward */}
-            <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-all border border-red-100">
-              <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6">
-                <div className="bg-red-600 text-white rounded-full px-4 md:px-5 py-2 font-bold shrink-0 shadow-md text-sm md:text-base">
-                  10 Points
+                  15 Stamps
                 </div>
                 <div className="w-full">
-                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-black">Free VSA Merch</h3>
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-black">Free VSA Statue</h3>
                   <p className="text-sm md:text-base text-gray-600 mb-6">
-                    Get free VSA merchandise
+                    Limited quantity
                   </p>
-
-                  {/* Merch Images - Front and Back */}
-                  <div className="grid grid-cols-2 gap-2 md:gap-6 max-w-md">
-                    <div className="relative w-full h-[100px] md:h-[200px] rounded-xl overflow-hidden">
-                      <Image
-                        src="/assets/membership/vsa-merch-front.png"
-                        alt="VSA Merchandise - Front"
-                        fill
-                        className="object-contain"
-                        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                    </div>
-                    <div className="relative w-full h-[100px] md:h-[200px] rounded-xl overflow-hidden">
-                      <Image
-                        src="/assets/membership/vsa-merch-back.png"
-                        alt="VSA Merchandise - Back"
-                        fill
-                        className="object-contain"
-                        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
