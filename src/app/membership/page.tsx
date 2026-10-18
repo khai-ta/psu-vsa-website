@@ -71,7 +71,7 @@ export default function Membership() {
                 <div className="w-full">
                   <h3 className="text-xl md:text-2xl font-bold mb-3 text-black">Free VSA Keychain</h3>
                   <p className="text-sm md:text-base text-gray-600 mb-4">
-                    Receive this year's exclusive VSA keychain
+                    Receive this year&apos;s exclusive VSA keychain
                   </p>
                 </div>
               </div>
