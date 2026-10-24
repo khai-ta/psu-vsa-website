@@ -43,10 +43,28 @@ export default function About() {
 
   const interns: Member[] = [
     // {
-    //   name: "Loi Nguyen",
+    //   name: "Ngoc Dang",
     //   position: "Intern",
     //   year: "Sophomore",
-    //   image: "/assets/eboard/LoiNguyen.JPG"
+    //   image: "/assets/eboard/Ngoc.jpg"
+    // },
+    // {
+    //   name: "Tho Nguyen",
+    //   position: "Intern",
+    //   year: "Freshman",
+    //   image: "/assets/eboard/Tho.jpg"
+    // },
+    // {
+    //   name: "Vy Phan",
+    //   position: "Intern",
+    //   year: "Freshman",
+    //   image: "/assets/eboard/Vy.jpg"
+    // },
+    // {
+    //   name: "Dat Phung",
+    //   position: "Intern",
+    //   year: "Sophomore",
+    //   image: "/assets/eboard/Dat.jpeg"
     // }
   ];
 
