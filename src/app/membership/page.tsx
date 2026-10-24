@@ -89,11 +89,11 @@ export default function Membership() {
                     Receive a discount coupon for any of our sponsors
                   </p>
                   <ul className="list-disc list-inside text-sm md:text-base text-gray-600 space-y-2 mb-6">
-                    <li>Tasty K</li>
-                    <li>Whale Tea</li>
                     <li>Momotaro</li>
-                    <li>Hawaiian Poke</li>
-                    <li>Uncle Chen</li>
+                    <li>Sip &amp; Slurp</li>
+                    <li>Sushi Yume</li>
+                    <li>Tasty K</li>
+                    <li>Teadori</li>
                   </ul>
 
                   {/* Coupon Image */}
